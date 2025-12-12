@@ -1,0 +1,193 @@
+/* ============================== */
+/*          1. GENERAL / RESET    */
+/* ============================== */
+/* Aplicación de box-sizing global para un layout más predecible */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* Usa min-height: 100vh para asegurar que el fondo cubra toda la altura de la pantalla */
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    /* Color de fondo sólido */
+    background-color: #130f36; 
+    overflow-x: hidden; /* Previene el scroll horizontal no deseado */
+}
+
+/* ============================== */
+/*          2. TIPOGRAFÍA Y TEXTOS  */
+/* ============================== */
+
+/* Estilos de párrafos consolidados */
+p, .p1, .p2 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+    line-height: 1.5;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 3px solid #ccc;
+    border-radius: 10px;
+    /* Diseño responsive: 90% de ancho en móviles, máximo 500px en escritorio */
+    width: 90%; 
+    max-width: 500px; 
+    margin: 20px auto; /* Centra el bloque */
+    text-align: center;
+}
+.p1 { color: red; }
+.p2 { font-size: 30px; }
+
+/* Estilos de títulos consolidados */
+h1, h2, h3, h4, h5, .titulo10 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;   
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px #ccc;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 { font-size: 36px; color: #000; }
+h2 { font-size: 36px; color: #020101; }
+h3 { 
+    font-size: 36px; 
+    color: #050404; 
+    background-color: #f0f0f0;
+    border: 2px solid #333; 
+    padding: 10px; 
+    border-radius: 10px;
+    line-height: 1.2;
+}
+h4 { font-size: 36px; color: #020101; }
+h5 { font-size: 36px; color: #fff; margin-top: 5px; }
+.titulo10 { font-size: 20px; }
+
+/* Estilos de etiquetas (labels) */
+label, .label1 { 
+    display: block;
+    margin-bottom: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;   
+}
+.label1 { font-size: 25px; }
+
+
+/* ============================== */
+/*          3. FORMULARIOS        */
+/* ============================== */
+
+.form1 {
+    text-align: center;
+    background-color: #f9f9f9;  
+    max-width: 600px;
+    width: 90%;
+    margin: 90px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input, .input1 {
+    /* Diseño responsive: Ancho completo del contenedor, padding incluido en el ancho */
+    width: 100%; 
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+    display: block; 
+    font-size: 20px;
+}
+.input1 { border: 1px solid #5e5c5c; }
+
+
+/* ============================== */
+/*          4. HEADERS (Contenedores) */
+/* ============================== */
+
+.header, .header1 {
+    background-color: #e7e2e2;   
+    color: white;                
+    display: flex;              
+    align-items: center;         
+    padding: 10px 20px;    
+    border-radius: 10px; 
+    border: 1px solid #1b1847;   
+    /* Diseño responsive: 90% de ancho, centrado y flexible */
+    width: 90%;     
+    margin: 10px auto;
+    box-sizing: border-box;
+}    
+
+.header1 {
+    height: auto; /* Altura flexible */
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que el contenido se ajuste en pantallas pequeñas */
+}  
+
+.header1 img{  
+  transition:transform 0.3s;
+}  
+.header1 img:hover{  
+   transform:scale(0.8);
+}    
+
+.logo {
+    width: 110px;                 
+    height: 110px;               
+    margin-right: 17px;     
+    border-radius: 60px; 
+    border: 1px solid #0f0f0f;  
+}
+
+
+/* ============================== */
+/*          5. CATÁLOGOS          */
+/* ============================== */
+
+.catalogo, .catalogo2, .catalogo3 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    width: 90%;
+    height: auto; /* Altura automática para adaptarse al contenido */
+    margin: 10px auto;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ============================== */
+/*          6. MEDIA QUERIES      */
+/* ============================== */
+
+/* Para dispositivos moviles (hasta 480px) */
+@media only screen and (max-width: 480px) {
+    body { font-size: 14px; }
+    .header, .header1 {
+        flex-direction: column; /* Apila logo y texto verticalmente */
+        text-align: center;
+    }
+    .logo {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+
+/* Para dispositivos medianos (481px a 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    body { font-size: 15px; }
+}

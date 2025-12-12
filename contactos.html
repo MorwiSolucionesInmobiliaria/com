@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>MorwiSolucionesInmobiliarias.com</title>
+
+    <link rel="stylesheet" href="ss.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+/* ============================== */
+/*           GENERAL / FONDO      */
+/* ============================== */
+/* Estos estilos aplican por defecto a todos los dispositivos */
+body {
+    margin: 0;
+    font-size: 16px; 
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    min-height: 100vh; 
+    
+    /* 🔥 CAMBIO AQUÍ: Color de fondo más suave y menos llamativo */
+    background-color: #eaf2f8; /* Azul muy claro */
+}
+
+/* ============================== */
+/*        HEADER Y TÍTULO        */
+/* ============================== */
+
+.header {
+    width: 100%;
+    /* Ajuste de transparencia para mejor contraste */
+    background: #133055e0;      
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;            
+}
+
+.header img {
+    width: 70px;
+    height: auto;
+}
+
+.header h1 {
+    color: white;
+    font-size: 32px;
+    margin: 0;
+    text-shadow: 2px 2px 4px #000;
+}
+
+
+/*             MENÚ              */
+
+
+.menu6 {
+    background-color: #133055e0;
+    padding: 10px;
+    width: fit-content; 
+    margin: 20px auto;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.menu6 a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    display: inline-block;
+    padding: 10px;
+}
+
+.menu6 a:hover {
+    background-color: #696b6e;
+    border-radius: 10px;
+}
+
+/* ============================== */
+/*   CONTENEDOR PRINCIPAL FLEX    */
+/* ============================== */
+.main-content-wrapper {
+    display: flex;
+    justify-content: space-around; 
+    flex-wrap: wrap; 
+    padding: 20px;
+}
+
+
+/*        FORMULARIO GENERAL     */
+
+.formulario {
+    width: 400px; 
+    margin: 0; 
+    padding: 20px; /* Más padding para mejor espaciado interno */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    display: block; 
+    clear: both;
+    max-width: 90%; 
+}
+
+/* 🔥 MEJORA: Título del formulario principal ahora es oscuro para contrastar con fondo blanco */
+.formulario h1 {
+    color: #133055; 
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+
+.formulario input[type="text"],
+.formulario input[type="tel"],
+.formulario input[type="email"],
+.formulario textarea {
+  width: 90%;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.formulario input[type="text"]:focus,
+.formulario input[type="tel"]:focus,
+.formulario input[type="email"]:focus,
+.formulario textarea:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.formulario textarea {
+  height: 100px;
+}
+.formulario button[type="submit"] {
+  width: 100%;
+  height: 40px;
+ background-color: #133055b3; /* Color de botón mejorado */
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+/*        FORMULARIO CONTACTO (LOG)    */
+
+
+.log {
+    background-color: #133055e0; /* Color coherente */
+    max-width: 500px;
+    width: 90%;
+    margin: 0; 
+    padding: 25px;
+    border-radius: 15px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   
+    align-items: center;       
+    gap: 25px;                 
+}
+
+h5 {
+    font-size: 28px;
+    margin: 10px;
+    color: white;
+}
+
+h4 {
+    font-size: 16px;
+    color: aliceblue;
+}
+
+
+/*            REDES               */
+
+.redes {
+    display: flex;
+    justify-content: center;   
+    align-items: center;       
+    gap: 35px;                 
+}
+
+.redes-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90px;               
+}
+
+.redes-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+
+.redes-item img:hover {
+    transform: scale(1.2);
+}
+
+.redes-item h4 {
+    margin-top: 8px;
+    font-size: 14px;
+    color: white;
+}
+
+.logoo {
+    border-radius: 20px;
+}
+
+
+/* ============================== */
+/*      MEDIA QUERIES (MÓVIL)     */
+/* ============================== */
+
+@media (max-width: 768px) {
+    /* En móviles, los contenedores .formulario y .log se apilan automáticamente por flex-wrap: wrap; */
+    .formulario {
+        margin-bottom: 20px; /* Añade espacio entre los dos formularios apilados */
+    }
+
+    .header h1 {
+        font-size: 26px;
+        text-align: center;
+    }
+    
+    .menu6 {
+        width: 90%; 
+        padding: 15px;
+    }
+
+    h5 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column; 
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 22px;
+    }
+
+    .redes {
+        gap: 15px; 
+    }
+    
+    .redes-item img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .redes-item h4 {
+        font-size: 12px;
+    }
+}
+
+
+    </style>
+</head>
+
+<body class="body">
+
+    <!-- HEADER -->
+    <div class="header">
+        <img src="hormiga-silueta.gif" alt="Logo" class="logo" width="70">
+        <h1>CONTACTO</h1>
+    </div>
+
+    <!-- MENÚ -->
+    <div class="menu6">
+        <a href="index.html">Volver al Inicio</a>
+           
+            <a href="nosotros.html"> Sobre Nosotros</a>
+            <a href="servi.html">Ver Servicios</a>
+            <a href="publicar.html">Publicar</a>
+               <a href="ayuda.html">Como usar la pagina?</a>
+    </div>
+
+    <!-- WRAPPER QUE COLOCA LOS DOS FORMULARIOS ALADO -->
+    <div class="main-content-wrapper">
+
+        <!-- FORMULARIO PRINCIPAL -->
+        <div class="formulario">
+           <form action="enviar1.php" method="POST">
+    <h1>CONTACTANOS</h1>
+    <input type="text" name="nombre" placeholder="Ingrese su nombre y apellido" required>
+    <input type="tel" name="celular" placeholder="Ingrese su número de celular" required>
+    <input type="email" name="correo" placeholder="Ingrese su correo electrónico" required>
+    <textarea name="mensaje" placeholder="Dejanos un comentario de como te podemos ayudar....." required></textarea>
+    <button type="submit">Enviar</button>
+</form>
+
+        </div>
+      
+        <!-- FORMULARIO CONTACTO Y REDES -->
+        <form class="log">
+            
+            <h5>Morwi Soluciones Inmobiliarias</h5>
+
+            <!-- Teléfono -->
+          <div class="redes">
+        <div class="redes-item">
+            <a href="tel:+543735531658">
+                <img src="llamada.png" width="60" class="logoo">
+            </a>
+            <h4>+54 (3735) 531658</h4>
+        </div>
+    </div>
+            <!-- Redes -->
+       <h4>Seguinos en</h4>
+
+    <div class="redes">
+
+        <div class="redes-item">
+            <!-- 🔥 MEJORA: Añadido https:// a las URLs para que funcionen -->
+            <a href="https://www.youtube.com">
+                <img src="1491580651-yumminkysocialmedia28_83061 (1).ico" alt="Youtube">
+            </a>
+            <h4>YouTube</h4>
+        </div>
+
+        <div class="redes-item">
+            <!-- 🔥 MEJORA: Añadido https:// a las URLs para que funcionen -->
+            <a href="https://www.facebook.com/share/p/1BrLSjBCft/">
+                <img src="iconfinder-social-media-applications-1facebook-4102573_113807.ico" alt="Facebook">
+            </a>
+            <h4>Facebook</h4>
+        </div>
+
+        <div class="redes-item">
+            <!-- 🔥 MEJORA: Añadido https:// a las URLs para que funcionen -->
+            <a href="https://www.instagram.com/morwi.soluciones.inmobiliaria?igsh=czkyZTN1aGR4bzJs">
+                <img src="instagram.ico" alt="Instagram">
+            </a>
+            <h4>Instagram</h4>
+        </div>
+
+    </div>
+        </form>
+
+    </div> <!-- FIN main-content-wrapper -->
+<a href="https://wa.me/543735531658" target="_blank" 
+    style="position:fixed; bottom:25px; right:25px; background:#25D366; color:white; 
+    width:60px; height:60px; border-radius:50%; display:flex; justify-content:center; align-items:center;
+    font-size:30px; box-shadow:0 4px 10px rgba(0,0,0,0.3); z-index:999;">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+</body>
+</html>

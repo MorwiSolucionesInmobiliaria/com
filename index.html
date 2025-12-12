@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morwi Soluciones Inmobiliarias</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* ========= VARIABLES ========= */
+:root{
+    --primary:#133055;
+    --primary-dark:#0b1f3a;
+    --accent:#ffcc00;
+    --accent-soft:#ffefb0;
+    --white:#fff;
+    --glass:rgba(19,48,85,.78);
+    --radius:18px;
+    --shadow:0 20px 50px rgba(0,0,0,.35);
+    --transition:.4s ease;
+    --font:'Trebuchet MS', Arial, sans-serif;
+}
+
+/* ========= RESET ========= */
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+    font-family:var(--font);
+    min-height:100vh;
+    background:
+      linear-gradient(rgba(8,20,40,.65),rgba(8,20,40,.65)),
+      url("freepik__talk__81069.png") center/cover fixed no-repeat;
+    color:#f3f4f6;
+    animation:fade .8s ease;
+}
+@keyframes fade{
+    from{opacity:0;transform:translateY(25px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+/* ========= HEADER ========= */
+.header{
+    max-width:1200px;
+    margin:auto;
+    padding:26px 20px 15px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+.header img{width:72px}
+.header h1{
+    font-size:30px;
+    letter-spacing:.5px;
+    text-shadow:0 6px 20px #000;
+}
+
+/* ========= NAV ========= */
+.menu5{
+    max-width:1200px;
+    margin:15px auto 35px;
+    padding:14px 22px;
+    display:flex;
+    justify-content:center;
+    gap:26px;
+    background:var(--glass);
+    border-radius:var(--radius);
+    backdrop-filter:blur(12px);
+    box-shadow:var(--shadow);
+}
+.menu5 a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    position:relative;
+}
+.menu5 a::after{
+    content:"";
+    position:absolute;
+    left:0;bottom:-6px;
+    width:0;height:2px;
+    background:var(--accent);
+    transition:var(--transition);
+}
+.menu5 a:hover::after{width:100%}
+
+/* ========= MAIN ========= */
+.main{
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px 50px;
+    display:grid;
+    grid-template-columns:1fr 420px;
+    gap:35px;
+}
+
+/* ========= DESTACADAS ========= */
+.destacadas{
+    animation:slideLeft 1s ease;
+}
+@keyframes slideLeft{
+    from{opacity:0;transform:translateX(-50px)}
+    to{opacity:1;transform:translateX(0)}
+}
+.titulo-area{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:18px;
+}
+.titulo-area img{width:48px}
+.titulo-area h2{
+    font-size:24px;
+    letter-spacing:.3px;
+}
+
+.galeria{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:20px;
+}
+.galeria img{
+    width:100%;
+    border-radius:18px;
+    aspect-ratio:4/3;
+    object-fit:cover;
+    box-shadow:var(--shadow);
+    cursor:pointer;
+    transition:var(--transition);
+}
+.galeria img:hover{
+    transform:translateY(-8px) scale(1.04);
+    filter:brightness(1.1);
+}
+
+/* ========= FORM ========= */
+.formulario{
+    background:var(--glass);
+    padding:34px;
+    border-radius:var(--radius);
+    backdrop-filter:blur(14px);
+    box-shadow:var(--shadow);
+    animation:slideRight 1s ease;
+}
+@keyframes slideRight{
+    from{opacity:0;transform:translateX(50px)}
+    to{opacity:1;transform:translateX(0)}
+}
+.formulario h1{
+    text-align:center;
+    margin-bottom:24px;
+    font-size:26px;
+    letter-spacing:.4px;
+}
+
+.campo{
+    position:relative;
+    margin-bottom:20px;
+}
+.campo i{
+    position:absolute;
+    top:50%;left:15px;
+    transform:translateY(-50%);
+    color:#555;
+    font-size:17px;
+}
+.campo input,
+.campo textarea{
+    width:100%;
+    padding:14px 16px 14px 48px;
+    border:none;
+    border-radius:14px;
+    font-size:1rem;
+}
+.campo textarea{min-height:120px;resize:none}
+.campo input:focus,
+.campo textarea:focus{
+    outline:3px solid rgba(255,204,0,.45);
+}
+
+/* ========= BOTÓN ========= */
+.btnEnviar{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:16px;
+    font-size:1.1rem;
+    font-weight:bold;
+    background:linear-gradient(90deg,var(--accent),#e6b800);
+    color:var(--primary-dark);
+    cursor:pointer;
+    transition:var(--transition);
+}
+.btnEnviar:hover{
+    transform:translateY(-4px);
+    box-shadow:0 18px 40px rgba(0,0,0,.45);
+}
+
+/* ========= FOOTER ========= */
+.footer{
+    margin-top:50px;
+    background:var(--glass);
+    padding:26px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    backdrop-filter:blur(10px);
+}
+.footer img{width:58px}
+.footer small{color:#e5e7eb}
+
+.btn-outline{
+    padding:12px 26px;
+    border-radius:14px;
+    border:2px solid white;
+    background:transparent;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    transition:var(--transition);
+}
+.btn-outline:hover{
+    background:white;
+    color:var(--primary);
+}
+
+/* ========= POPUP ========= */
+#popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+}
+.popup-box{
+    background:white;
+    padding:32px;
+    border-radius:22px;
+    text-align:center;
+    max-width:380px;
+    animation:pop .35s ease;
+}
+@keyframes pop{
+    from{transform:scale(.75);opacity:0}
+    to{transform:scale(1);opacity:1}
+}
+
+/* ========= WHATSAPP ========= */
+.whatsapp{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:62px;height:62px;
+    background:#25D366;
+    color:white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+    box-shadow:var(--shadow);
+}
+
+/* ========= RESPONSIVE ========= */
+@media(max-width:900px){
+    .main{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <img src="hormiga-silueta.gif" alt="Morwi">
+    <h1>Morwi Soluciones Inmobiliarias</h1>
+</header>
+
+<nav class="menu5">
+    <a href="contactos.html">Ir a Contacto</a>
+    <a href="nosotros.html">Sobre Nosotros</a>
+    <a href="servi.html">Ver Servicios</a>
+    <a href="publicar.html">Publicar</a>
+    <a href="ayuda.html">Ayuda</a>
+</nav>
+
+<section class="main">
+
+    <div class="destacadas">
+        <div class="titulo-area">
+            <img src="Tick_Mark_Circle_icon-icons.com_69145.ico">
+            <h2>Propiedades destacadas</h2>
+        </div>
+
+        <div class="galeria">
+            <img src="casa01.jpg" onclick="location.href='detalles1.html'">
+            <img src="casa02.jpg" onclick="location.href='detalles1.html'">
+               <img src="casa01.jpg" onclick="location.href='detalles1.html'">
+            <img src="casa02.jpg" onclick="location.href='detalles1.html'">
+        </div>
+    </div>
+
+    <aside class="formulario">
+        <form id="contactForm" action="enviar4.php" method="post" enctype="multipart/form-data">
+            <h1>Contactanos</h1>
+
+            <div class="campo">
+                <i class="fa-solid fa-user"></i>
+                <input id="nombre" name="nombre" placeholder="Nombre completo" required>
+            </div>
+
+            <div class="campo">
+                <i class="fa-solid fa-phone"></i>
+                <input id="celular" name="celular" placeholder="Celular" required>
+            </div>
+
+            <div class="campo">
+                <i class="fa-solid fa-envelope"></i>
+                <input id="correo" name="corre" type="email" placeholder="Correo electrónico" required>
+            </div>
+
+            <div class="campo">
+                <i class="fa-solid fa-message"></i>
+                <textarea id="mensaje"  name="mensaje" placeholder="Mensaje" required></textarea>
+            </div>
+
+            <button class="btnEnviar">Enviar mensaje</button>
+        </form>
+    </aside>
+
+</section>
+
+<footer class="footer">
+    <img src="hormiga-silueta.gif">
+    <div>
+        <strong>Morwi Soluciones Inmobiliarias</strong><br>
+        <small>Du Graty · Chaco · +54 3735 531658</small>
+    </div>
+    <button class="btn-outline" onclick="location.href='contactos.html'">Contacto</button>
+</footer>
+
+<div id="popup">
+    <div class="popup-box">
+        <h2>¡Gracias!</h2>
+        <p>Tu mensaje fue enviado correctamente.</p>
+        <button class="btn-outline" onclick="popup.style.display='none'">Cerrar</button>
+    </div>
+</div>
+
+<a href="https://wa.me/543735531658" target="_blank" class="whatsapp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script>
+const form=document.getElementById("contactForm");
+const popup=document.getElementById("popup");
+
+form.addEventListener("submit",e=>{
+    e.preventDefault();
+    popup.style.display="flex";
+    form.reset();
+});
+</script>
+
+</body>
+</html>

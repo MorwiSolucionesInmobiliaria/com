@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morwi Soluciones Inmobiliaria - Emprendimientos</title>
+
+<style>
+/* ========= PALETA ORIENTADA A EMPRENDIMIENTOS ========= */
+:root {
+    --primary-color: #4A90E2;      /* Azul profesional */
+    --secondary-color: #357ABD;    /* Azul más oscuro */
+    --hover-color: #2C5DA3;        /* Azul hover */
+    --background-color: #f4f7fb;   /* Fondo claro */
+    --card-bg: rgba(255, 255, 255, 0.98);
+    --text-color: #333;
+    --muted-text: #6c757d;
+    --shadow-light: 0 4px 15px rgba(0,0,0,0.08);
+    --shadow-hover: 0 10px 30px rgba(0,0,0,0.18);
+    --border-color: #dee2e6;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    flex-grow: 1;
+}
+
+/* ========= HEADER ========= */
+.header {
+    background-color: var(--card-bg);
+    padding: 20px 5%;
+    display: flex;
+    align-items: center;
+    box-shadow: var(--shadow-light);
+    border-bottom: 4px solid var(--primary-color);
+    flex-wrap: wrap;
+}
+
+.logo {
+    width: 60px;
+    margin-right: 15px;
+    transition: transform 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.header h1 {
+    color: var(--primary-color);
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-weight: 700;
+}
+
+/* ========= MENU ========= */
+.menu5 {
+    background-color: var(--primary-color);
+    padding: 12px 5%;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.menu5 a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: 2px solid #fff;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.menu5 a:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.05);
+}
+
+/* ========= BUSCADOR ========= */
+.search-container {
+    margin: 30px 0;
+}
+
+.input1 {
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input1:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 12px rgba(53,122,189,0.3);
+}
+
+/* ========= CATÁLOGO ========= */
+.catalogo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: flex-start;
+}
+
+.producto {
+    flex: 1 1 calc(50% - 30px);
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+    min-width: 280px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.producto:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+.producto img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.producto:hover img {
+    transform: scale(1.05);
+}
+
+.detalle-producto {
+    padding: 20px;
+}
+
+.detalle-producto h2 {
+    color: var(--primary-color);
+    margin-bottom: 12px;
+}
+
+.detalle-producto p {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.detalle-producto .precio {
+    font-weight: bold;
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+/* ========= BOTONES ========= */
+.btn {
+    margin-top: 15px;
+    padding: 12px;
+    background-color: var(--secondary-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.05);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-outline:hover {
+    background-color: var(--secondary-color);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* ========= FOOTER ========= */
+.site-footer {
+    background-color: var(--card-bg);
+    border-top: 3px solid var(--primary-color);
+    padding: 25px 5%;
+    margin-top: 40px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-logo {
+    width: 60px;
+}
+
+/* ========= RESPONSIVE ========= */
+@media (max-width: 1024px) {
+    .producto {
+        flex: 1 1 calc(50% - 30px);
+    }
+}
+
+@media (max-width: 768px) {
+    .menu5 {
+        flex-direction: column;
+    }
+
+    .btn, .btn-outline {
+        width: 100%;
+    }
+
+    .producto {
+        flex: 1 1 100%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <img src="hormiga-silueta.gif" alt="Logo" class="logo">
+    <h1>Emprendimientos</h1>
+</header>
+
+<nav class="menu5">
+    <a href="index.html">Volver al Inicio</a>
+            <a href="contactos.html"> Ir a Contacto</a>
+            <a href="nosotros.html"> Sobre Nosotros</a>
+            <a href="servi.html">Ver Servicios</a>
+            <a href="publicar.html">Publicar</a>
+              <a href="servi.html">Volver atras</a>
+                 <a href="ayuda.html">Como usar la pagina?</a>
+</nav>
+
+<main class="container">
+    <div class="search-container">
+        <input class="input1" type="text" id="busca" placeholder="Buscar por ciudad, código o tipo de inmueble...">
+    </div>
+
+    <div class="catalogo">
+        <div class="producto" data-nombre="villa angela" data-categoria="001">
+            <img src="typical-generic-american-single-family-600nw-2609924113.jpg">
+            <div class="detalle-producto">
+                <h2>Emprendimiento Residencial</h2>
+                <p><strong>Localidad:</strong> Villa Ángela</p>
+                <p><strong>Barrio:</strong> Provincias Unidas</p>
+                <p><strong>Tipo:</strong> Departamento</p>
+                <p><strong>Superficie:</strong> 85 m²</p>
+                <p class="precio">Alquiler: $60.000 ARS</p>
+                <a href="detalle3.html" class="btn">Ver propiedad</a>
+            </div>
+        </div>
+
+        <div class="producto" data-nombre="resistencia" data-categoria="002">
+            <img src="estudio-de-arquitectura-arquinova-casas-casa-haras-santa-maria-C-0014-054-35.jpg">
+            <div class="detalle-producto">
+                <h2>Emprendimiento Comercial</h2>
+                <p><strong>Localidad:</strong> Resistencia</p>
+                <p><strong>Barrio:</strong> Provincias Unidas</p>
+                <p><strong>Tipo:</strong> Oficina</p>
+                <p><strong>Superficie:</strong> 120 m²</p>
+                <p class="precio">Alquiler: $85.000 ARS</p>
+                <a href="detalle4.html" class="btn">Ver propiedad</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+const input = document.getElementById('busca');
+const items = document.querySelectorAll('.producto');
+
+input.addEventListener('input', () => {
+    const filtro = input.value.toLowerCase();
+    items.forEach(el => {
+        const nombre = el.dataset.nombre;
+        const codigo = el.dataset.categoria;
+        el.style.display = (nombre.includes(filtro) || codigo.includes(filtro)) ? 'flex' : 'none';
+    });
+});
+</script>
+
+<footer class="site-footer">
+    <div class="footer-content">
+        <img src="hormiga-silueta.gif" class="footer-logo">
+        <div>
+            <strong>Morwi Soluciones Inmobiliaria</strong><br>
+            <small>Du Graty · Chaco · Tel: 54 (3735) 531658</small>
+        </div>
+        <button class="btn-outline" onclick="location.href='contactos.html'">Contactanos</button>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morwi Solucines Inmbolibiaria.com</title>
+   
+    <!-- Enlace a Google Fonts para un aspecto profesional -->
+   <style>/* Variables CSS para paleta de colores moderna y celeste */
+/* Variables CSS para paleta de colores moderna y celeste */
+:root {
+    --primary-color: #004085;
+    --secondary-color: #007bff;
+    --hover-color: #0056b3;
+    --background-color: #f4f7f9;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --text-color: #333333;
+    --muted-text: #6c757d;
+    --shadow-light: 0 4px 15px rgba(0,0,0,0.08);
+    --shadow-hover: 0 8px 25px rgba(0,0,0,0.15);
+    --border-color: #dee2e6;
+    --badge-color: #28a745;
+}
+
+/* Reset y estilos base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url('freepik__talk__81069.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    width: 100%;
+    flex-grow: 1;
+}
+
+/* Header/Encabezado */
+.header {
+    background-color: var(--card-bg);
+    padding: 15px 5%;
+    display: flex;
+    align-items: center;
+    box-shadow: var(--shadow-light);
+    border-bottom: 3px solid var(--secondary-color);
+}
+
+.header .logo {
+    width: 50px;
+    margin-right: 20px;
+    transition: transform 0.3s ease;
+}
+
+.header .logo:hover {
+    transform: scale(1.1);
+}
+
+.header h1 {
+    color: var(--primary-color);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    /* Tipografía Fluida: Escala entre 1.5rem y 2rem dependiendo del viewport */
+    font-size: clamp(1.5rem, 5vw, 2rem); 
+}
+
+/* Navegación */
+.menu5 {
+    background-color: var(--primary-color);
+    padding: 10px 5%;
+    display: flex;
+    gap: 20px;
+}
+
+.menu5 a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 5px 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.menu5 a:hover {
+    background-color: var(--hover-color);
+    border-radius: 4px;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Controles de Búsqueda */
+.search-container {
+    margin-bottom: 30px;
+    padding-top: 20px;
+}
+
+.input1 {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1em;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    background-color: var(--card-bg);
+    transition: border-color 0.3s;
+}
+
+.input1:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+}
+
+/* Catálogo y Tarjetas de Producto */
+.catalogo {
+    display: grid;
+    /* Mínimo 280px por columna, se adapta al espacio */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.producto {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.image-wrapper {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.producto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+    transition: transform 0.5s ease;
+}
+
+.producto:hover img {
+    transform: scale(1.05);
+}
+
+.badge-nuevo {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--badge-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.detalle-producto {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.detalle-producto h2 {
+    color: var(--primary-color);
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+    border: none;
+    font-weight: bold;
+    /* Por defecto en desktop, el botón no es 100% ancho */
+    width: auto; 
+}
+
+.btn:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    width: auto;
+}
+
+.btn-outline:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* Footer Profesional */
+.site-footer {
+    background-color: var(--card-bg);
+    padding: 15px 5%;
+    border-top: 1px solid var(--border-color);
+    margin-top: 40px;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.05);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.footer-logo {
+    width: 60px;
+}
+
+.contact-info strong {
+    color: var(--primary-color);
+}
+
+.contact-info small {
+    color: var(--muted-text);
+    display: block;
+    font-size: 0.8em;
+}
+
+/* Media Queries: Adaptación a diferentes tamaños de pantalla */
+
+/* Para tablets y dispositivos medianos (hasta 768px) */
+@media (max-width: 768px) {
+    .menu5 {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .menu5 a {
+        padding: 10px 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* En móvil, los botones de las tarjetas y del footer ocupan todo el ancho */
+    .btn, .btn-outline {
+        width: 100%; 
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .site-footer {
+        padding: 15px 5%; 
+    }
+
+    .contact-info {
+        margin-top: 10px;
+    }
+
+    .contact-row {
+        margin-top: 10px;
+        width: 100%;
+    }
+}
+
+/* Para dispositivos muy pequeños (hasta 480px) */
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header .logo {
+        margin-bottom: 10px;
+    }
+
+    .container {
+        padding: 0 10px;
+    }
+
+    .catalogo {
+        gap: 15px;
+    }
+}
+
+</style>
+<body>
+
+    <header class="header">
+      <img src="hormiga-silueta.gif" alt="Logo" class="logo">
+      <h1>Comprar Propiedades</h1>
+    </header>
+    
+    <nav class="menu5">
+       <a href="index.html">Volver al Inicio</a>
+            <a href="contactos.html"> Ir a Contacto</a>
+            <a href="nosotros.html"> Sobre Nosotros</a>
+            <a href="servi.html">Ver Servicios</a>
+            <a href="publicar.html">Publicar</a>
+            <a href="servi.html">Volver atras</a>
+               <a href="ayuda.html">Como usar la pagina?</a>
+    </nav>
+
+    <main class="container">
+        <div class="search-container">
+            <input class="input1" type="text" id="busca" placeholder="Buscar Ciudad o Código...">
+        </div>
+
+        <div class="catalogo">
+            <!-- Producto 1 -->
+            <div class="producto" data-nombre="villa angela" data-categoria="001">
+                <img src="typical-generic-american-single-family-600nw-2609924113.jpg" alt="Producto Villa Angela">
+                <div class="detalle-producto">
+                    <h2>Detalle</h2>
+                    <p><strong>Localidad:</strong> Villa Angela</p>
+                    <p><strong>Barrio:</strong> Provincias Unidas</p>
+                    <p><strong>Codigo:</strong> 001</p>
+                    <a href="detalles1.html" class="btn">Ver más detalles</a>
+                </div>
+            </div>
+            
+            <!-- Producto 2 -->
+            <div class="producto" data-nombre="resistencia" data-categoria="002">
+                <img src="estudio-de-arquitectura-arquinova-casas-casa-haras-santa-maria-C-0014-054-35.jpg" alt="Producto Resistencia">
+                 <div class="detalle-producto">
+                    <h2>Detalle</h2>
+                    <p><strong>Localidad:</strong> Resistencia</p>
+                    <p><strong>Barrio:</strong> Provincias Unidas</p>
+                    <p><strong>Codigo:</strong> 002</p>
+                    <a href="detalle4.html" class="btn">Ver más detalles</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- El script se mueve al final del body para mejor rendimiento -->
+    <script>
+        const input = document.getElementById('busca');
+        const items = document.querySelectorAll('.producto');
+      
+        input.addEventListener('input', () => {
+          const filtro = input.value.toLowerCase();
+          items.forEach(el => {
+            const texto = el.getAttribute('data-nombre').toLowerCase();
+            const cat  = el.getAttribute('data-categoria').toLowerCase();
+            // Usamos 'flex' en lugar de 'block' porque el CSS usa flexbox
+            el.style.display = (texto.includes(filtro) || cat.includes(filtro)) ? 'flex' : 'none';
+          });
+        });
+    </script>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+            <img src="hormiga-silueta.gif" alt="logo" class="footer-logo">
+        
+        <div class="contact-info">  
+          <strong>Morwi Soluciones Inmobiliaria</strong><br>
+          <small>Du Graty · Chaco, Argentina · Tel: 54 (3735) 531658</small>
+        </div>
+        
+        <div class="contact-row">
+          <div class="help-text">¿Necesitas ayuda?</div>
+          <button class="btn-outline" onclick="window.location='contactos.html'">Contactanos</button>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>

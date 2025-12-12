@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morwi Soluciones Inmobiliaria</title>
+
+<!-- SEO -->
+<meta name="description" content="Morwi Soluciones Inmobiliarias · Compra, venta y alquiler de propiedades en Chaco">
+
+<!-- ICONOS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+<style>
+:root{
+    --primary:#133055;
+    --dark:#0c1e33;
+    --glass:rgba(19,48,85,.65);
+    --white:#fff;
+    --text-dark:#333;
+    --footer:#e7e2e2;
+    --radius:14px;
+    --transition:.35s ease;
+    --font:'Trebuchet MS', Arial, sans-serif;
+}
+
+body.dark{
+    --glass:rgba(0,0,0,.65);
+    --footer:#111;
+    background:#0b1625;
+    color:#fff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+    font-family:var(--font);
+    background:url("freepik__talk__81069.png") center/cover fixed no-repeat;
+    min-height:100vh;
+    color:var(--white);
+    animation:fadePage 1s forwards;
+}
+
+/* HEADER */
+.header{
+    background:var(--glass);
+    backdrop-filter:blur(10px);
+    padding:15px;
+    text-align:center;
+}
+.header img{width:85px}
+
+/* HERO */
+.hero{
+    text-align:center;
+    padding:50px 20px;
+}
+
+/* ====== NUEVO LAYOUT ====== */
+.main-layout{
+    max-width:1200px;
+    margin:40px auto;
+    padding:0 20px;
+    display:flex;
+    gap:30px;
+    align-items:flex-start;
+}
+
+/* MENÚ */
+.menu5{
+    background:var(--glass);
+    padding:15px;
+    border-radius:var(--radius);
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    min-width:240px;
+}
+
+.menu5 a{
+    color:var(--white);
+    text-decoration:none;
+    padding:12px 18px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,.25);
+    transition:var(--transition);
+}
+
+.menu5 a i{margin-right:8px}
+
+.menu5 a:hover{
+    background:var(--dark);
+    transform:translateX(5px);
+}
+
+/* TEXTO */
+.p4{
+    flex:1;
+    padding:35px;
+    background:var(--glass);
+    border-radius:var(--radius);
+    backdrop-filter:blur(10px);
+    box-shadow:0 15px 30px rgba(0,0,0,.45);
+    line-height:1.8;
+    font-size:1.05rem;
+    text-align:left;
+}
+
+/* FOOTER */
+footer{
+    background:var(--footer);
+    color:var(--text-dark);
+    padding:25px;
+    margin-top:40px;
+}
+.footer-container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+/* BOTONES */
+.btn-outline{
+    border:2px solid currentColor;
+    background:none;
+    padding:8px 18px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+/* BOTONES FLOTANTES */
+.whatsapp{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:60px;
+    height:60px;
+    background:#25d366;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:34px;
+}
+
+.dark-toggle{
+    position:fixed;
+    left:20px;
+    bottom:20px;
+    background:var(--glass);
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .main-layout{
+        flex-direction:column;
+    }
+    .menu5{
+        width:100%;
+    }
+    .p4{
+        text-align:center;
+    }
+}
+
+@keyframes fadePage{
+    from{opacity:0}
+    to{opacity:1}
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <img src="hormiga-silueta.gif">
+</div>
+
+<div class="hero">
+    <h1>Morwi Soluciones Inmobiliarias</h1>
+    <p>Confianza · Profesionalismo · Transparencia</p>
+</div>
+
+<!-- MENÚ + TEXTO LADO A LADO -->
+<div class="main-layout">
+
+    <div class="menu5" data-aos="fade-right">
+        <a href="index.html"><i class="fa fa-house"></i>Inicio</a>
+        <a href="nosotros.html"><i class="fa fa-users"></i>Nosotros</a>
+        <a href="servi.html"><i class="fa fa-briefcase"></i>Servicios</a>
+        <a href="publicar.html"><i class="fa fa-upload"></i>Publicar</a>
+        <a href="contactos.html"><i class="fa fa-phone"></i>Contacto</a>
+    </div>
+
+    <div class="p4" data-aos="fade-up">
+        Somos un portal inmobiliario dedicado a acercar la mayor cantidad de propuestas del mercado,
+        ofreciendo confianza, honestidad y responsabilidad en cada operación.<br><br>
+
+        Nuestro principal objetivo es acompañar en cada proceso inmobiliario, brindando información
+        clara y segura desde el inicio hasta la finalización.<br><br>
+
+        MLS (Multiple Listing Service) es un sistema colaborativo entre inmobiliarias que permite
+        compartir propiedades para optimizar la gestión.<br><br>
+
+        Las superficies, fotos y valores son orientativos y no contractuales.<br><br>
+
+        <strong>Lo estamos esperando, no dude en consultarnos.</strong>
+    </div>
+
+</div>
+
+<footer>
+    <div class="footer-container">
+        <strong>Morwi Soluciones Inmobiliaria</strong>
+        <button class="btn-outline" onclick="location.href='contactos.html'">
+            Contáctanos
+        </button>
+    </div>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/543735531658" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<div class="dark-toggle" onclick="toggleDark()">
+    <i class="fa fa-moon"></i>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+AOS.init({duration:900, once:true});
+function toggleDark(){
+    document.body.classList.toggle("dark");
+}
+</script>
+
+</body>
+</html>

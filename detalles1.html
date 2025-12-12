@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fuente profesional -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* -------------------------
+           RESET Y BASE
+        -------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Inter", sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            background-image: url("freepik__talk__81069.png");
+            background-size: cover;
+            background-attachment: fixed;
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin: 20px 0;
+            font-weight: 700;
+            color: #133055;
+        }
+
+        /* -------------------------
+           HEADER
+        -------------------------- */
+        .header {
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 25px;
+            border-radius: 12px;
+            border: 1px solid #d9d9d9;
+            width: 95%;
+            margin: 20px auto;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+        }
+
+        .logo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 2px solid #133055;
+        }
+
+        /* -------------------------
+           MENÚ SUPERIOR
+        -------------------------- */
+        .menu5 {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            background: #133055;
+            padding: 12px;
+            border-radius: 12px;
+            width: 95%;
+            margin: 10px auto 25px auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .menu5 a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 18px;
+            transition: 0.3s ease;
+            border-radius: 6px;
+        }
+
+        .menu5 a:hover {
+            background-color: #0d1d36;
+            transform: scale(1.05);
+        }
+
+        /* -------------------------
+           CONTENEDOR PRINCIPAL
+        -------------------------- */
+        .catalogo3 {
+            width: 95%;
+            max-width: 1300px;
+            margin: auto;
+            padding: 25px;
+            background: #ffffffc9;
+            border-radius: 15px;
+            backdrop-filter: blur(7px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* -------------------------
+           CARRUSEL
+        -------------------------- */
+        .carousel-container {
+            width: 65%;
+            margin: 25px auto;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.18);
+        }
+
+        .carousel-item {
+            width: 100%;
+            display: none;
+        }
+
+        .carousel-item.active {
+            display: block;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.45);
+            color: #fff;
+            border: none;
+            padding: 12px;
+            font-size: 22px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background: #133055;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        /* -------------------------
+           PRECIO Y DETALLES
+        -------------------------- */
+        .precio-venta {
+            width: 45%;
+            margin: 25px auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-venta {
+            background: #a80000;
+            color: white;
+            padding: 12px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .monto-venta {
+            background: #fff;
+            padding: 18px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .propiedad-detalles {
+            width: 70%;
+            margin: 25px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .propiedad-header {
+            background: #133055;
+            color: white;
+            padding: 12px;
+            font-weight: bold;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .propiedad-contenido {
+            display: flex;
+            padding: 20px;
+            justify-content: space-between;
+        }
+
+        /* -------------------------
+           TARJETAS + FORMULARIO
+        -------------------------- */
+        .info-contacto {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tarjeta,
+        .tarjeta2 {
+            width: 310px;
+            background: #fff;
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+            text-align: left;
+            transition: 0.3s;
+        }
+
+        .tarjeta:hover,
+        .tarjeta2:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.20);
+        }
+
+        .formulario {
+            width: 360px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .formulario input,
+        .formulario textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cfcfcf;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            transition: 0.2s;
+        }
+
+        .formulario button {
+            width: 100%;
+            padding: 12px;
+            background: #133055;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .formulario button:hover {
+            background: #0d1d36;
+            transform: scale(1.03);
+        }
+
+        /* -------------------------
+           MAPA
+        -------------------------- */
+        .map-container {
+            width: 80%;
+            height: 400px;
+            margin: 25px auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* -------------------------
+           FOOTER
+        -------------------------- */
+        footer {
+            margin-top: 60px;
+            padding: 25px;
+            background: #fff;
+            border-radius: 12px;
+            width: 95%;
+            margin: 50px auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ============================
+           RESPONSIVE
+        ============================ */
+
+        @media (max-width: 1024px) {
+            .carousel-container { width: 80%; }
+            .precio-venta { width: 60%; }
+            .propiedad-detalles { width: 85%; }
+        }
+
+        @media (max-width: 768px) {
+            .header { flex-direction: column; }
+
+            .menu5 { flex-wrap: wrap; gap: 12px; }
+
+            .carousel-container { width: 95%; }
+
+            .propiedad-contenido {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .precio-venta { width: 80%; }
+
+            .info-contacto {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tarjeta,
+            .tarjeta2,
+            .formulario {
+                width: 90%;
+            }
+
+            .map-container {
+                width: 95%;
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 22px; }
+            .logo { width: 70px; height: 70px; }
+            .menu5 a { font-size: 14px; padding: 6px 10px; }
+            .carousel-container { width: 100%; }
+            .monto-venta { font-size: 22px; }
+            .formulario input,
+            .formulario textarea { font-size: 14px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <img src="hormiga-silueta.gif" class="logo">
+        <h2>Morwi Soluciones Inmobiliarias</h2>
+    </div>
+
+    <div class="menu5">
+       <a href="index.html">Volver al Inicio</a>
+            <a href="contactos.html"> Ir a Contacto</a>
+            <a href="nosotros.html"> Sobre Nosotros</a>
+            <a href="servi.html">Ver Servicios</a>
+            <a href="publicar.html">Publicar</a>
+               <a href="ayuda.html">Como usar la pagina?</a>
+    </div>
+
+    <div class="catalogo3">
+
+        <h1>Aquí puedes encontrar otros detalles de la propiedad</h1>
+
+        <!-- CARRUSEL -->
+        <div class="carousel-container">
+            <img src="imagen12.jpg" class="carousel-item active">
+            <img src="5741aa9ec7b30c62e621390d1d4aca22.jpg" class="carousel-item">
+            <img src="estudio-de-arquitectura-arquinova-casas-casa-haras-santa-maria-C-0014-054-35.jpg" class="carousel-item">
+
+            <button class="prev" onclick="prevImage()">❮</button>
+            <button class="next" onclick="nextImage()">❯</button>
+        </div>
+
+        <script>
+            let currentImage = 0;
+            const images = document.querySelectorAll(".carousel-item");
+
+            function showImage(n) {
+                images.forEach((img, i) => img.classList.toggle("active", i === n));
+            }
+
+            function nextImage() {
+                currentImage = (currentImage + 1) % images.length;
+                showImage(currentImage);
+            }
+
+            function prevImage() {
+                currentImage = (currentImage - 1 + images.length) % images.length;
+                showImage(currentImage);
+            }
+        </script>
+
+        <!-- VENTA -->
+        <div class="precio-venta">
+            <div class="header-venta">VENTA</div>
+            <div class="monto-venta">$5.000.000</div>
+        </div>
+
+        <!-- DETALLES -->
+        <div class="propiedad-detalles">
+            <div class="propiedad-header">Detalles de la Propiedad</div>
+            <div class="propiedad-contenido">
+                <div class="propiedad-columna">
+                    <span class="propiedad-titulo">Dirección</span>
+                    <span class="propiedad-info">Falucho al 2400</span>
+                    <span class="propiedad-ref">(REF. Local Falucho)</span>
+                </div>
+                <div class="propiedad-columna">
+                    <span class="propiedad-titulo">Ubicación</span>
+                    <span class="propiedad-info">Plaza Mitre</span>
+                </div>
+            </div>
+        </div>
+
+        <h1>Información Básica</h1>
+        <h1>Descripción</h1>
+        <h1>Medidas</h1>
+        <h1>Servicios</h1>
+        <h1>Ambientes</h1>
+<h1>Otros</h1>
+        <!-- CONTENEDOR TARJETAS + FORM -->
+        <div class="info-contacto">
+
+            <div class="tarjeta2">
+                <h2>Dueño</h2>
+                <div class="contacto-info">
+                    <p>Carla Guidi</p>
+                    <p>Email: akarlagui@gmail.com</p>
+                    <p>Tel: 5492234979080</p>
+                </div>
+            </div>
+
+            <div class="tarjeta">
+                <h2>MORWI SOLUCIONES INMOBILIARIAS</h2>
+                <div class="contacto-info">
+                    <p>Email: info@morwi.com.ar</p>
+                    <p>Teléfono:+54 (3735) 531658 </p>
+                    <p>WhatsApp: +54 (3735) 531658</p>
+                </div>
+            </div>
+
+            <div class="formulario">
+                <form action="enviar3.php" method="post">
+    <h1>Contacto</h1>
+    <input type="text" name="nombre" placeholder="Ingrese su nombre" required>
+    <input type="tel" name="telefono" placeholder="Ingrese su número de celular" required>
+    <input type="email" name="correo" placeholder="Ingrese su correo electrónico" required>
+    <textarea name="mensaje" placeholder="Estoy interesado en la propiedad...." required></textarea>
+    <button type="submit">Enviar</button>
+</form>
+
+            </div>
+
+        </div>
+
+        <h1>Ubicación</h1>
+        <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d221.0450142033007!2d-60.711890609195954!3d-27.571192021875138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9447a9cfdcae6ca1%3A0x268ede9e2ab0ff71!2sCenter%20Computaci%C3%B3n!5e0!3m2!1ses-419!2sar!4v1765246331466!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+    </div>
+
+    <footer>
+        Morwi Soluciones Inmobiliarias — Todos los derechos reservados
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centro de Ayuda - Morwi Soluciones Inmobiliarias</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary:#133055;--primary-light:#1d4b8f;--accent:#ffcc00;--bg:#ffffff;
+    --white:#ffffff;--text-dark:#333;--shadow:0 6px 20px rgba(0,0,0,0.15);
+    --radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background-color:var(--bg);font-family:'Inter',sans-serif;color:var(--text-dark);overflow-x:hidden;transition:.3s;}
+header{background:linear-gradient(90deg,#0f2a4d,#133055);padding:20px;color:white;text-align:center;box-shadow:var(--shadow);}header h1{font-size:clamp(1.4rem,3vw,2.4rem);font-weight:700;}
+nav.menu5{display:flex;justify-content:center;flex-wrap:wrap;gap:16px;background:linear-gradient(90deg,#0f2a4d,#133055);padding:15px 20px;border-radius:12px;margin:20px auto;width:min(95%,900px);box-shadow:var(--shadow);}nav.menu5 a{color:#fff;font-weight:600;text-decoration:none;padding:10px 14px;font-size:clamp(.85rem,2.5vw,1.1rem);border-radius:10px;transition:.3s;white-space:nowrap;}nav.menu5 a:hover{background:var(--accent);color:var(--primary);}        
+.container{max-width:1200px;margin:25px auto;padding:20px;}
+.banner{background:var(--white);border-radius:var(--radius);padding:30px;display:flex;gap:25px;align-items:center;box-shadow:var(--shadow);flex-wrap:wrap;}
+.banner img{width:min(250px,40vw);border-radius:var(--radius);} .banner h2{font-size:clamp(1.4rem,3vw,2rem);color:var(--primary);}        
+.index-box{background:var(--white);padding:25px;border-radius:var(--radius);margin-bottom:30px;box-shadow:var(--shadow);} .index-box h3{color:var(--primary);margin-bottom:10px;} .index-box li{padding:8px 0;} .index-box a{font-weight:600;color:var(--primary);text-decoration:none;}         
+.card{background:var(--white);border-radius:var(--radius);padding:25px;margin-bottom:35px;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;} .card:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,0,0,0.20);} .card h2{font-size:clamp(1.3rem,2.8vw,1.7rem);color:var(--primary);margin-bottom:15px;}        
+.step{background:#eef2f7;border-left:6px solid var(--primary);padding:15px;margin:12px 0;border-radius:10px;display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap;} .step p{flex:1;} .step i{font-size:1.4rem;color:var(--primary-light);}         
+.btn{display:inline-block;padding:12px 20px;background:var(--primary);color:white;border-radius:10px;text-decoration:none;font-weight:600;margin-top:10px;transition:.3s;} .btn:hover{background:var(--accent);color:var(--primary);}        
+.video-sim{width:100%;height:280px;background:#000;border-radius:var(--radius);margin:15px 0;display:flex;justify-content:center;align-items:center;} .video-sim::after{content:"▶";color:white;font-size:3rem;opacity:.7;}        
+footer{background:var(--primary);padding:25px;text-align:center;color:white;margin-top:40px;}        
+/* ACCESIBILIDAD */
+.whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25d366;color:white;font-size:2rem;width:60px;height:60px;display:flex;justify-content:center;align-items:center;border-radius:50%;box-shadow:var(--shadow);z-index:900;} .whatsapp-float:hover{background:#1ebe5d;}        
+.accessibility-panel{position:fixed;top:20px;left:20px;display:flex;flex-direction:column;gap:10px;z-index:950;} .accessibility-panel button{width:45px;height:45px;border:none;border-radius:12px;background:var(--primary);color:white;font-size:1.2rem;cursor:pointer;box-shadow:var(--shadow);transition:.3s;} .accessibility-panel button:hover{background:var(--accent);color:var(--primary);}        
+/* DARK MODE */
+body.dark-mode{background-color:#0e1623;color:white;} body.dark-mode header,body.dark-mode nav.menu5,body.dark-mode footer{background:#0b1a2c!important;} body.dark-mode .card,body.dark-mode .banner,body.dark-mode .index-box{background:#162232;color:white;} body.dark-mode .step{background:#1e2d42;border-left-color:var(--accent);} body.dark-mode a{color:#ffde59;}        
+</style>
+</head>
+<body>
+<header><h1>Centro de Ayuda • Morwi Soluciones Inmobiliarias</h1></header>
+<nav class="menu5" aria-label="Menú principal">
+    <a href="index.html">Volver a Inicio</a>
+    <a href="contactos.html"> Ir a Contacto</a>
+    <a href="nosotros.html">Sobre Nosotros</a>
+    <a href="servi.html"> Ver Servicios</a>
+    <a href="publicar.html">Publicar</a>
+</nav>
+<div class="container">
+    <div class="banner"><img src="1a57077c-58b1-494b-9783-fd3cd6ad32ac.png"><div><h2>Bienvenido al Centro de Ayuda</h2><p>Aprende a usar todas las funciones de nuestra plataforma.</p></div></div>
+<br><br>
+    <div class="index-box"><h3>Contenido de esta guía</h3><ul><li><a href="#menu">1. Menú</a></li><li><a href="#buscar">2. Buscar propiedades</a></li><li><a href="#detalles">3. Ver detalles</a></li><li><a href="#publicar">4. Publicar</a></li><li><a href="#contacto">5. Contacto</a></li><li><a href="#tips">6. Consejos</a></li></ul></div>
+
+    <div class="card" id="menu"><h2><i class="fa-solid fa-bars"></i> 1. Menú Principal</h2>
+        <div class="step"><i class="fa-solid fa-house"></i><p><b>Inicio:</b> página principal.</p></div>
+        <div class="step"><i class="fa-solid fa-phone"></i><p><b>Contacto:</b> envíanos consultas.</p></div>
+        <div class="step"><i class="fa-solid fa-users"></i><p><b>Sobre Nosotros:</b> quiénes somos.</p></div>
+        <div class="step"><i class="fa-solid fa-briefcase"></i><p><b>Servicios:</b> listado profesional.</p></div>
+        <div class="step"><i class="fa-solid fa-upload"></i><p><b>Publicar:</b> sube propiedades.</p></div>
+    </div>
+
+    <div class="card" id="buscar"><h2><i class="fa-solid fa-magnifying-glass"></i> 2. Buscar Propiedades</h2>
+        <p>Busca en "Venta", "Alquiler" y más.</p>
+        <div class="step"><i class="fa-solid fa-location-dot"></i><p>Escribe ubicación o barrio.</p></div>
+        <div class="step"><i class="fa-solid fa-building"></i><p>Filtra por precios y tipos.</p></div>
+        <div class="step"><i class="fa-solid fa-images"></i><p>Haz clic para ver más info.</p></div>
+        <div class="video-sim"></div>
+        <a class="btn" href="venta.html">Ver propiedades</a>
+    </div>
+
+    <div class="card" id="detalles"><h2><i class="fa-solid fa-circle-info"></i> 3. Detalles</h2>
+        <div class="step"><i class="fa-solid fa-camera"></i><p>Galería de fotos HD.</p></div>
+        <div class="step"><i class="fa-solid fa-dollar-sign"></i><p>Precio actualizado.</p></div>
+        <div class="step"><i class="fa-solid fa-map"></i><p>Mapa integrado.</p></div>
+        <div class="step"><i class="fa-solid fa-file"></i><p>Descripción completa.</p></div>
+        <div class="step"><i class="fa-solid fa-envelope"></i><p>Formulario de contacto.</p></div>
+    </div>
+
+    <div class="card" id="publicar"><h2><i class="fa-solid fa-upload"></i> 4. Publicar</h2>
+        <div class="step"><i class="fa-solid fa-pen-to-square"></i><p>Entra a “Publicar”.</p></div>
+        <div class="step"><i class="fa-solid fa-file-lines"></i><p>Completa los datos.</p></div>
+        <div class="step"><i class="fa-solid fa-image"></i><p>Sube fotos claras.</p></div>
+        <div class="step"><i class="fa-solid fa-paper-plane"></i><p>Envía para revisión.</p></div>
+        <a class="btn" href="publicar.html">Ir al Formulario</a>
+    </div>
+
+    <div class="card" id="contacto"><h2><i class="fa-solid fa-headset"></i> 5. Contacto</h2>
+        <div class="step"><i class="fa-solid fa-envelope"></i><p>Formulario web.</p></div>
+        <div class="step"><i class="fa-solid fa-phone-volume"></i><p>Teléfono o WhatsApp.</p></div>
+        <a class="btn" href="contactos.html">Ir a Contacto</a>
+    </div>
+
+    <div class="card" id="tips"><h2><i class="fa-solid fa-lightbulb"></i> 6. Consejos</h2>
+        <div class="step"><i class="fa-solid fa-check"></i><p>Fotos claras.</p></div>
+        <div class="step"><i class="fa-solid fa-check"></i><p>Buena descripción.</p></div>
+        <div class="step"><i class="fa-solid fa-check"></i><p>Precio actualizado.</p></div>
+        <div class="step"><i class="fa-solid fa-check"></i><p>Verifica tu contacto.</p></div>
+    </div>
+</div>
+<footer>© 2025 Morwi Soluciones Inmobiliarias<br><small>Centro de Ayuda</small></footer>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/543735531658" target="_blank" 
+    style="position:fixed; bottom:25px; right:25px; background:#25D366; color:white; 
+    width:60px; height:60px; border-radius:50%; display:flex; justify-content:center; align-items:center;
+    font-size:30px; box-shadow:0 4px 10px rgba(0,0,0,0.3); z-index:999;">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+<!-- Accesibilidad -->
+<div class="accessibility-panel">
+    <button id="increaseFont"><i class="fa-solid fa-plus"></i></button>
+    <button id="decreaseFont"><i class="fa-solid fa-minus"></i></button>
+    <button id="toggleDark"><i class="fa-solid fa-moon"></i></button>
+</div>
+
+<script>
+// MODO OSCURO
+const toggleDark=document.getElementById('toggleDark');toggleDark.addEventListener('click',()=>{document.body.classList.toggle('dark-mode');localStorage.setItem('dark',document.body.classList.contains('dark-mode'));});if(localStorage.getItem('dark')==='true'){document.body.classList.add('dark-mode');}
+// TAMAÑO DE TEXTO
+let fontSize=100;const increaseFont=document.getElementById('increaseFont');const decreaseFont=document.getElementById('decreaseFont');increaseFont.onclick=()=>{if(fontSize<140){fontSize+=10;document.body.style.fontSize=fontSize+'%';}};decreaseFont.onclick=()=>{if(fontSize>70){fontSize-=10;document.body.style.fontSize=fontSize+'%';}};
+</script>
+</body>
+</html>

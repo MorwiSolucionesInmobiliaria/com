@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morwi Soluciones Inmobiliaria.com - Formulario</title>
+<!-- Eliminé la referencia a estilo.css ya que integramos todo aquí -->
+
+<style>
+/* =================================================== */
+/* --- 1. VARIABLES GLOBALES Y RESET BÁSICO --- */
+/* =================================================== */
+:root {
+    --color-primary: #133055;           /* Azul oscuro principal */
+    --color-primary-alpha: rgba(19, 48, 85, 0.7); /* Azul oscuro con opacidad */
+    --color-secondary-alpha: rgba(0, 0, 0, 0.7); /* Fondo oscuro formulario */
+    --color-accent: #ffcc00;            /* Amarillo/Oro de acento */
+    --color-text-light: #ffffff;        /* Texto claro */
+    --color-text-dark: #333333;         /* Texto oscuro principal (footer) */
+    --color-card-bg: #e7e2e2;           /* Fondo de cajas claras */
+    --font-family-base: 'Trebuchet MS', Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box; /* Todo respeta su ancho/alto declarado */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family-base);
+    color: var(--color-text-light); /* Texto principal blanco */
+    line-height: 1.6;
+    background-color: var(--color-dark); /* Color de fallback si la imagen falla */
+}
+
+/* Contenedor principal que maneja el fondo */
+.background-container {
+    background-image: url('freepik__talk__81069.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* =================================================== */
+/* --- 2. HEADER --- */
+/* =================================================== */
+.header {
+    width: 100%;
+    padding: 15px 30px; /* Más padding horizontal */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: var(--color-primary-alpha);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.header h1 {
+    color: var(--color-text-light);
+    font-size: 1.5rem; /* Usando rems para escalabilidad */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* =================================================== */
+/* --- 3. LAYOUT PRINCIPAL Y MENÚ --- */
+/* =================================================== */
+.content-wrapper {
+    display: flex;
+    flex: 1; /* Ocupa el espacio restante en la columna */
+    padding: 30px 20px;
+    gap: 30px;
+    align-items: flex-start; /* Alinea menú y formulario al inicio */
+}
+
+.menu {
+    background-color: var(--color-primary-alpha);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+    flex-shrink: 0; /* Previene que el menú se comprima */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    min-width: 200px; /* Ancho mínimo para legibilidad */
+}
+
+.menu a, .menu select {
+    text-decoration: none;
+    color: var(--color-text-light);
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo sutil */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu a:hover, .menu select:hover, .menu a:focus {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+}
+
+.menu select {
+    /* Estilo específico para el select */
+    appearance: none; /* Oculta flecha por defecto en algunos navegadores */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M10%203.5L6%207.5L2%203.5z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+/* =================================================== */
+/* --- 4. FORMULARIO --- */
+/* =================================================== */
+.form-container {
+    background-color: var(--color-secondary-alpha); 
+    padding: 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 700px; /* Ancho máximo aumentado para campos largos */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--color-accent);
+    font-size: 1.8rem;
+    text-shadow: none;
+}
+
+.form-container label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: var(--color-text-light);
+    font-weight: bold;
+}
+
+.form-container input,
+.form-container textarea,
+.form-container select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    background-color: var(--color-card-bg); /* Fondo claro para los inputs */
+    color: var(--color-text-dark);
+}
+
+.form-container textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-container input:focus,
+.form-container textarea:focus,
+.form-container select:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 2px var(--color-accent); /* Anillo de foco profesional */
+}
+
+/* Estilo para el input de tipo file, que a veces requiere estilos específicos */
+.form-container input[type="file"] {
+    padding: 10px; 
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.btn3 {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: var(--color-accent);
+    border: none;
+    border-radius: 8px;
+    color: var(--color-primary); /* Texto oscuro en botón de acento */
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.btn3:hover {
+    background-color: #ffda4a;
+    transform: translateY(-2px);
+}
+
+/* =================================================== */
+/* --- 5. FOOTER --- */
+/* =================================================== */
+footer {
+    width: 100%;
+    /* 💥 CAMBIO AQUÍ: Fondo sólido, no transparente */
+    background-color: #e7e2e2; 
+    color: var(--color-text-dark);
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: auto; /* Empuja el footer hacia abajo si el contenido es corto */
+}
+
+footer img {
+    width: 70px;
+    flex-shrink: 0;
+}
+
+footer .footer-info {
+    flex: 1;
+    min-width: 200px;
+}
+
+footer .contact-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+    flex-shrink: 0;
+}
+
+.btn-outline {
+    padding: 10px 20px;
+    background: transparent;
+    border: 2px solid var(--color-text-dark);
+    color: var(--color-text-dark);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline:hover {
+    background-color: var(--color-text-dark);
+    color: var(--color-text-light);
+}
+
+/* =================================================== */
+/* --- 6. RESPONSIVO --- */
+/* =================================================== */
+
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 10px;
+    }
+
+    .menu {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap; /* Permite que los elementos salten de línea si es necesario */
+        margin-bottom: 20px;
+    }
+
+    .menu a, .menu select {
+        flex: 1 1 auto; /* Asegura que los botones se expandan uniformemente */
+        margin-bottom: 5px;
+    }
+
+    .form-container {
+        max-width: 100%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .header h1 {
+        font-size: 1.2rem;
+    }
+    
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    footer .contact-row {
+        align-items: center;
+    }
+}
+
+</style>
+</head>
+
+<body>
+<div class="background-container">
+
+    <!-- Header -->
+    <div class="header">
+        <img src="hormiga-silueta.gif" alt="Logo" class="logo" width="60">
+        <h1>Formulario de Publicación</h1>
+    </div>
+
+    <!-- Contenedor principal: menú + formulario -->
+    <div class="content-wrapper">
+        <!-- Menú vertical -->
+        <div class="menu">
+            <a href="index.html">Volver al Inicio</a>
+            <a href="contactos.html"> Ir a Contacto</a>
+            <a href="nosotros.html"> Sobre Nosotros</a>
+            <a href="servi.html">Ver Servicios</a>
+            <a href="publicar.html">Publicar</a>
+             <a href="ayuda.html">Cómo usar la página?</a>
+        </div>
+
+        <!-- Formulario -->
+        
+<form action="enviar4.php" method="post" enctype="multipart/form-data" class="form-container">
+    <h2>Datos de la propiedad</h2>
+
+    <label for="nombre">Nombre y apellido del dueño:</label>
+    <input type="text" id="nombre" name="nombre" required placeholder="Ej: Juan Pérez">
+
+    <label for="correo">Correo electrónico:</label>
+    <input type="email" id="correo" name="correo" required placeholder="ejemplo@correo.com">
+
+    <label for="telefono">Número de celular:</label>
+    <input type="tel" id="telefono" name="telefono" required placeholder="Ej: 3735-123456">
+
+    <label for="tipo">Tipo de propiedad:</label>
+    <input type="text" id="tipo" name="tipo" required placeholder="Casa, Departamento, Terreno...">
+
+    <label for="dimensiones">Dimensiones:</label>
+    <input type="text" id="dimensiones" name="dimensiones" required placeholder="Ej: 200 m²">
+
+    <label for="operacion">Venta, Alquiler, Emprendimiento:</label>
+    <input type="text" id="operacion" name="operacion" required placeholder="Venta, Alquiler o Emprendimiento">
+
+    <label for="descripcion">Descripción:</label>
+    <textarea id="descripcion" name="descripcion" required placeholder="Describa la propiedad..."></textarea>
+
+    <label for="otros">Otros detalles:</label>
+    <textarea id="otros" name="otros" placeholder="Detalles adicionales"></textarea>
+
+    <label for="ciudad">Ciudad:</label>
+    <input type="text" id="ciudad" name="ciudad" required placeholder="Ej: Du Graty">
+
+    <label for="ubicacion">Ubicación o Dirección:</label>
+    <input type="text" id="ubicacion" name="ubicacion" required placeholder="Calle, Nº, Barrio">
+
+    <label for="precio">Precio:</label>
+    <input type="number" id="precio" name="precio" required placeholder="Ej: 2500000">
+
+    <label for="imagenes">Subir imágenes:</label>
+    <input type="file" id="imagenes" name="imagenes[]" multiple accept="image/*">
+
+    <button type="submit" class="btn3">Enviar datos</button>
+</form>
+
+    </div>
+
+    <!-- Footer -->
+<footer>
+    <img src="hormiga-silueta.gif" alt="logo">
+    <div class="footer-info">
+        <strong>Morwi Soluciones Inmobiliaria</strong><br>
+        <small>Du Graty· Chaco, Argentina · Tel: 54 (3735) 531658</small>
+    </div>
+    <div class="contact-row">
+        <div>¿Necesitas ayuda?</div>
+        <button class="btn-outline" onclick="window.location='contactos.html'">Contáctanos</button>
+    </div>
+</footer>
+
+</div>
+
+<script>
+const menu = document.getElementById('menu1');
+menu.addEventListener('change', () => {
+    const valor = menu.value;
+    if (valor === 'Comprar Inmueble') window.location = 'servicio.html';
+    if (valor === 'Vender inmueble') window.location = 'venta.html';
+    if (valor === 'Alquilar inmueble') window.location = 'alquila.html';
+    if (valor === 'Emprendimiento') window.location = 'emprendimiento.html';
+});
+</script>
+
+</body>
+</html>

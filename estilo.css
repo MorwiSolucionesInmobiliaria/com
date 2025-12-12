@@ -1,0 +1,239 @@
+/* --- VARIABLES CSS GLOBALES para consistencia y fácil mantenimiento --- */
+:root {
+  --color-primary: #1b1847; /* Color principal/acentuado */
+  --color-text: #333;       /* Color de texto principal */
+  --color-background: #f9f9f9; /* Color de fondo claro */
+  --color-card-bg: #ffffff; /* Fondo para tarjetas/formularios */
+  --color-border: #ccc;    /* Color de borde general */
+  --font-family-primary: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* --- REINICIO BÁSICO Y ESTILOS GENERALES (Normalize/Reset) --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Asegura que padding/border se incluyan en width/height */
+}
+
+body {
+  width: 100%;
+  min-height: 100vh; /* Usa min-height para asegurar que el fondo cubra toda la página */
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  /* Manejo de la imagen de fondo de forma profesional */
+  background-image: url(freepik__talk__81069.png);
+  background-repeat: no-repeat;
+  background-size: cover; /* Cubre todo el viewport */
+  background-position: center;
+  overflow-x: hidden; /* Previene el scroll horizontal no deseado */
+}
+
+/* --- TIPOGRAFÍA (Jerarquía visual clara) --- */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-family-primary);
+  font-weight: 700; /* Un peso de fuente consistente para títulos */
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h1 {
+  font-size: 2.5rem; /* Uso de rems para escalabilidad */
+  color: #000;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1); /* Sombra más sutil */
+}
+
+h2, h3, h4 {
+  font-size: 2rem;
+  color: #020101;
+}
+
+h3 {
+  background-color: #f0f0f0;
+  border: 2px solid var(--color-text);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+h5 {
+  font-size: 1.5rem;
+  color: #fff; /* Color de texto blanco, asumiendo un fondo oscuro en el header */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  margin-top: 5px;
+}
+
+.titulo10 { /* Ajustado para ser más estándar */
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* --- ELEMENTOS DE CONTENIDO GENERAL --- */
+p {
+  font-family: var(--font-family-primary);
+  font-size: 1.1rem;
+  color: var(--color-text);
+  line-height: 1.6; /* Mejorar legibilidad */
+  margin: 20px auto; /* Centrado automático */
+  padding: 15px;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  width: 90%; /* Ajuste de ancho para mejor responsividad */
+  max-width: 600px;
+  text-align: center;
+}
+
+.p1 {
+  color: red; /* Manteniendo el color específico */
+}
+
+.p2 {
+  font-size: 1.5rem; /* Ajuste de tamaño */
+}
+
+/* --- LAYOUTS Y COMPONENTES (Usando Flexbox/Grid para diseño moderno) --- */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Alineación mejorada */
+  background-color: var(--color-card-bg); /* Fondo claro para contraste */
+  padding: 15px 30px;
+  border-radius: 10px;
+  border: 1px solid var(--color-primary);
+  max-width: 1310px;
+  margin: 20px auto; /* Centrado */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  width: 80px; /* Tamaño más estándar para un logo */
+  height: 80px;
+  margin-right: 20px;
+  border-radius: 50%; /* Círculo perfecto */
+  border: 2px solid var(--color-primary);
+  object-fit: cover; /* Asegura que la imagen se vea bien dentro del círculo */
+}
+
+.header1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e7e2e2;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--color-primary);
+  margin-top: 50px; /* Ajustado para mejor flujo */
+  height: auto; /* Altura automática basada en contenido */
+  text-align: center;
+}
+
+.header1 img {
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease-in-out; /* Transición suave */
+  border-radius: 8px;
+}
+
+.header1 img:hover {
+  transform: scale(0.95); /* Un hover más sutil y profesional */
+}
+
+.catalogo, .catalogo2, .catalogo3 {
+  display: grid;
+  /* Grid responsivo: columnas automáticas que se ajustan al espacio */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px; /* Espaciado entre elementos de catálogo */
+  max-width: 1200px;
+  height: auto; /* Altura automática */
+  margin: 20px auto;
+  padding: 20px;
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- FORMULARIOS --- */
+.form1 {
+  text-align: center;
+  background-color: var(--color-card-bg);
+  max-width: 600px;
+  margin: 90px auto;
+  padding: 30px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+input {
+  width: 100%; /* El 100% respeta el padding gracias a box-sizing: border-box */
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1rem;
+  /* Eliminar display: flex, justify-content, align-items de inputs, no son necesarios */
+}
+
+.input1 {
+  /* Clase específica para inputs más anchos */
+  max-width: 100%; /* Ajustado para responsividad */
+  border: 1px solid #5e5c5c;
+}
+
+label, .label1 {
+  display: block;
+  margin-bottom: 10px;
+  font-family: var(--font-family-primary);
+  text-align: left; /* Generalmente se ve mejor alineado a la izquierda */
+  font-size: 1rem;
+}
+
+.label1 {
+  font-size: 1.25rem;
+}
+
+
+/* --- RESPONSIVIDAD MEJORADA (Mobile-first approach) --- */
+
+/* Dispositivos Móviles (0px a 480px) */
+@media only screen and (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+  h1 { font-size: 2rem; }
+  h2, h3, h4 { font-size: 1.5rem; }
+  .header {
+    flex-direction: column; /* Apila elementos del header en móvil */
+    padding: 10px;
+  }
+  .logo {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+/* Tabletas (481px a 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+  h1 { font-size: 2.2rem; }
+}
+
+/* Desktops (769px+) */
+@media only screen and (min-width: 769px) {
+  body {
+    font-size: 16px;
+  }
+}
