@@ -35,6 +35,8 @@ body{
     color:#f3f4f6;
     animation:fade .7s;
 }
+
+/* Animación */
 @keyframes fade{
     from{opacity:0; transform:translateY(15px);}
     to{opacity:1; transform:translateY(0);}
@@ -44,23 +46,25 @@ body{
 .header{
     max-width:1200px;
     margin:auto;
-    padding:20px;
+    padding:clamp(10px,2vw,20px);
     display:flex;
     align-items:center;
     gap:16px;
 }
-.header img{width:64px; height:auto;}
+.header img{
+    width:clamp(45px,6vw,70px);
+    height:auto;
+}
 .header h1{
-    font-size:clamp(22px,4vw,32px);
+    font-size:clamp(20px,4vw,32px);
 }
 
-/* ========= NAV + BUSCADOR ========= */
-
+/* ========= NAV (MEJORADO) ========= */
 nav{
     width:100%;
     background:var(--glass);
     backdrop-filter:blur(12px);
-    padding:14px 22px;
+    padding:10px 16px;
     box-shadow:var(--shadow);
 }
 
@@ -70,35 +74,34 @@ nav{
     display:flex;
     justify-content:space-between;
     align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
 }
 
-/* Links */
+/* Menu desktop */
 .menu-links{
     display:flex;
-    gap:24px;
     align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
 }
 
 .menu-links a{
     color:white;
     text-decoration:none;
     font-weight:600;
-    position:relative;
-}
-
-.menu-links a::after{
-    content:"";
-    position:absolute;
-    left:0; bottom:-6px;
-    width:0; height:2px;
-    background:var(--accent);
+    padding:8px 12px;
+    border-radius:10px;
     transition:var(--transition);
 }
-.menu-links a:hover::after{width:100%}
 
-/* Botón Contacto estilizado */
+.menu-links a:hover{
+    background:rgba(255,255,255,0.15);
+}
+
+/* Botón Contacto */
 .btn-contacto{
-    padding:8px 16px;
+    padding:10px 18px;
     border-radius:12px;
     background:var(--accent);
     color:var(--primary-dark) !important;
@@ -112,23 +115,25 @@ nav{
     border:2px solid var(--accent);
 }
 
-/* BUSCADOR */
+/* BUSCADOR SIEMPRE VISIBLE */
 .buscar-prop{
+    width:100%;
     display:flex;
+    justify-content:center;
     gap:10px;
-    align-items:center;
-    margin-left:20px;
+    flex-wrap:wrap;
+    margin-top:10px;
 }
 
 .buscar-prop input{
-    padding:8px 12px;
+    padding:10px 14px;
     border-radius:10px;
     border:none;
-    width:130px;
+    width:clamp(120px,30vw,180px);
 }
 
 .buscar-prop button{
-    padding:8px 14px;
+    padding:10px 14px;
     background:var(--accent);
     border:none;
     border-radius:10px;
@@ -137,37 +142,50 @@ nav{
     cursor:pointer;
     transition:var(--transition);
 }
-.buscar-prop button:hover{
-    transform:scale(1.05);
-}
+.buscar-prop button:hover{transform:scale(1.05)}
 
-/* BOTÓN HAMBURGUESA */
 .hamb{
     display:none;
-    font-size:30px;
+    font-size:32px;
     cursor:pointer;
 }
 
-/* MENU MOBILE */
-@media(max-width:920px){
-    .buscar-prop{display:none;}
-}
+/* ========= RESPONSIVE NAV ========= */
+@media(max-width:850px){
 
-@media(max-width:760px){
+    .menu-container{justify-content:space-between;}
+
     .menu-links{
         position:fixed;
-        top:0; right:-100%;
-        background:rgba(0,0,0,.95);
+        top:0; 
+        right:-100%;
         height:100vh;
-        width:70%;
+        width:75%;
+        background:rgba(0,0,0,0.95);
         flex-direction:column;
-        padding-top:80px;
+        padding-top:100px;
+        gap:30px;
         transition:var(--transition);
+        z-index:999;
     }
 
-    .hamb{display:block;color:white;}
+    .menu-links a{
+        font-size:22px;
+        width:80%;
+        text-align:center;
+        padding:12px 0;
+        border-radius:14px;
+    }
 
-    .menu-links a{font-size:20px;}
+    .hamb{
+        display:block;
+        color:white;
+    }
+
+    .buscar-prop{
+        order:3;
+        margin-top:12px;
+    }
 }
 
 /* ========= MAIN ========= */
@@ -179,8 +197,12 @@ nav{
     grid-template-columns:1fr 400px;
     gap:35px;
 }
-@media(max-width:900px){
-    .main{grid-template-columns:1fr;}
+
+@media(max-width:1000px){
+    .main{
+        grid-template-columns:1fr;
+        padding:14px;
+    }
 }
 
 /* ========= DESTACADAS ========= */
@@ -196,15 +218,18 @@ nav{
     gap:12px;
     margin-bottom:18px;
 }
-.titulo-area img{width:48px; height:auto;}
-.titulo-area h2{font-size:clamp(20px,3vw,26px);}
+.titulo-area img{
+    width:clamp(32px,5vw,50px);
+}
+.titulo-area h2{
+    font-size:clamp(20px,4vw,28px);
+}
 
 .galeria{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:18px;
 }
-
 .galeria img{
     width:100%;
     aspect-ratio:4/3;
@@ -219,10 +244,10 @@ nav{
     filter:brightness(1.1);
 }
 
-/* ========= FORM ========= */
+/* ========= FORMULARIO ========= */
 .formulario{
     background:var(--glass);
-    padding:30px;
+    padding:clamp(20px,4vw,32px);
     border-radius:var(--radius);
     backdrop-filter:blur(14px);
     box-shadow:var(--shadow);
@@ -232,15 +257,16 @@ nav{
     from{opacity:0; transform:translateX(40px);}
     to{opacity:1; transform:translateX(0);}
 }
-
 .formulario h1{
     text-align:center;
     margin-bottom:22px;
-    font-size:clamp(22px,3vw,28px);
+    font-size:clamp(22px,4vw,30px);
 }
 
-.campo{position:relative; margin-bottom:20px;}
-
+.campo{
+    position:relative;
+    margin-bottom:20px;
+}
 .campo i{
     position:absolute;
     left:14px;
@@ -248,23 +274,19 @@ nav{
     transform:translateY(-50%);
     color:#666;
 }
-
-.campo input,
-.campo textarea{
+.campo input, .campo textarea{
     width:100%;
     padding:14px 16px 14px 48px;
     border:none;
     border-radius:14px;
     font-size:1rem;
 }
-
 textarea{min-height:120px; resize:none;}
-
 input:focus, textarea:focus{
     outline:3px solid rgba(255,204,0,.45);
 }
 
-/* ========= BOTÓN ========= */
+/* Botón */
 .btnEnviar{
     width:100%;
     padding:16px;
@@ -291,9 +313,11 @@ input:focus, textarea:focus{
     align-items:center;
     justify-content:space-between;
     gap:20px;
-    backdrop-filter:blur(10px);
+    flex-wrap:wrap;
 }
-.footer img{width:58px;}
+.footer img{
+    width:clamp(45px,6vw,65px);
+}
 .footer small{color:#e5e7eb}
 
 @media(max-width:700px){
@@ -320,6 +344,7 @@ input:focus, textarea:focus{
     text-align:center;
     max-width:380px;
     animation:pop .35s ease;
+    color:#333;
 }
 @keyframes pop{
     from{transform:scale(.75); opacity:0;}
@@ -366,7 +391,6 @@ input:focus, textarea:focus{
             <a href="ayuda.html">Ayuda</a>
         </div>
 
-        <!-- BUSCADOR -->
         <div class="buscar-prop">
             <input type="text" placeholder="Localidad" id="buscarLocalidad">
             <input type="text" placeholder="Código" id="buscarCodigo">
@@ -447,18 +471,23 @@ input:focus, textarea:focus{
     <i class="fa-brands fa-whatsapp"></i>
 </a>
 
-<!-- SCRIPTS -->
+<!-- JS -->
 <script>
 
 function toggleMenu(){
     let menu = document.getElementById("menuLinks");
-    menu.style.right = menu.style.right === "0px" ? "-100%" : "0px";
+
+    if(menu.style.right === "0px"){
+        menu.style.right = "-100%";
+    } else {
+        menu.style.right = "0px";
+    }
 }
 
-const form=document.getElementById("contactForm");
-const popup=document.getElementById("popup");
+const form = document.getElementById("contactForm");
+const popup = document.getElementById("popup");
 
-form.addEventListener("submit",e=>{
+form.addEventListener("submit", e=>{
     e.preventDefault();
     popup.style.display="flex";
     form.reset();
