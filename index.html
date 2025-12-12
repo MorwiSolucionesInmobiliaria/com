@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<title>Morwi Soluciones Inmobiliarias</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* ========= VARIABLES ========= */
+:root{
+    --primary:#133055;
+    --primary-dark:#0b1f3a;
+    --accent:#ffcc00;
+    --white:#fff;
+    --glass:rgba(19,48,85,.78);
+    --radius:18px;
+    --shadow:0 20px 50px rgba(0,0,0,.35);
+    --transition:.35s ease;
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+}
+
+/* ========= RESET ========= */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+    font-family:var(--font);
+    min-height:100vh;
+    background:
+      linear-gradient(rgba(8,20,40,.65),rgba(8,20,40,.65)),
+      url("freepik__talk__81069.png") center/cover fixed no-repeat;
+    color:#f3f4f6;
+    animation:fade .7s;
+}
+
+/* Animación */
+@keyframes fade{
+    from{opacity:0; transform:translateY(15px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* ========= HEADER ========= */
+.header{
+    max-width:1200px;
+    margin:auto;
+    padding:clamp(10px,2vw,20px);
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+.header img{
+    width:clamp(45px,6vw,70px);
+    height:auto;
+}
+.header h1{
+    font-size:clamp(20px,4vw,32px);
+}
+
+/* ========= NAV (MEJORADO) ========= */
+nav{
+    width:100%;
+    background:var(--glass);
+    backdrop-filter:blur(12px);
+    padding:10px 16px;
+    box-shadow:var(--shadow);
+}
+
+.menu-container{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+}
+
+/* Menu desktop */
+.menu-links{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.menu-links a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    padding:8px 12px;
+    border-radius:10px;
+    transition:var(--transition);
+}
+
+.menu-links a:hover{
+    background:rgba(255,255,255,0.15);
+}
+
+/* Botón Contacto */
+.btn-contacto{
+    padding:10px 18px;
+    border-radius:12px;
+    background:var(--accent);
+    color:var(--primary-dark) !important;
+    font-weight:bold;
+    border:2px solid transparent;
+    transition:var(--transition);
+}
+.btn-contacto:hover{
+    background:transparent;
+    color:white !important;
+    border:2px solid var(--accent);
+}
+
+/* BUSCADOR SIEMPRE VISIBLE */
+.buscar-prop{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:10px;
+}
+
+.buscar-prop input{
+    padding:10px 14px;
+    border-radius:10px;
+    border:none;
+    width:clamp(120px,30vw,180px);
+}
+
+.buscar-prop button{
+    padding:10px 14px;
+    background:var(--accent);
+    border:none;
+    border-radius:10px;
+    font-weight:bold;
+    color:var(--primary-dark);
+    cursor:pointer;
+    transition:var(--transition);
+}
+.buscar-prop button:hover{transform:scale(1.05)}
+
+.hamb{
+    display:none;
+    font-size:32px;
+    cursor:pointer;
+}
+
+/* ========= RESPONSIVE NAV ========= */
+@media(max-width:850px){
+
+    .menu-container{justify-content:space-between;}
+
+    .menu-links{
+        position:fixed;
+        top:0; 
+        right:-100%;
+        height:100vh;
+        width:75%;
+        background:rgba(0,0,0,0.95);
+        flex-direction:column;
+        padding-top:100px;
+        gap:30px;
+        transition:var(--transition);
+        z-index:999;
+    }
+
+    .menu-links a{
+        font-size:22px;
+        width:80%;
+        text-align:center;
+        padding:12px 0;
+        border-radius:14px;
+    }
+
+    .hamb{
+        display:block;
+        color:white;
+    }
+
+    .buscar-prop{
+        order:3;
+        margin-top:12px;
+    }
+}
+
+/* ========= MAIN ========= */
+.main{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+    display:grid;
+    grid-template-columns:1fr 400px;
+    gap:35px;
+}
+
+@media(max-width:1000px){
+    .main{
+        grid-template-columns:1fr;
+        padding:14px;
+    }
+}
+
+/* ========= DESTACADAS ========= */
+.destacadas{animation:slideLeft .8s;}
+@keyframes slideLeft{
+    from{opacity:0; transform:translateX(-40px);}
+    to{opacity:1; transform:translateX(0);}
+}
+
+.titulo-area{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:18px;
+}
+.titulo-area img{
+    width:clamp(32px,5vw,50px);
+}
+.titulo-area h2{
+    font-size:clamp(20px,4vw,28px);
+}
+
+.galeria{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:18px;
+}
+.galeria img{
+    width:100%;
+    aspect-ratio:4/3;
+    object-fit:cover;
+    border-radius:18px;
+    cursor:pointer;
+    transition:var(--transition);
+    box-shadow:var(--shadow);
+}
+.galeria img:hover{
+    transform:scale(1.03);
+    filter:brightness(1.1);
+}
+
+/* ========= FORMULARIO ========= */
+.formulario{
+    background:var(--glass);
+    padding:clamp(20px,4vw,32px);
+    border-radius:var(--radius);
+    backdrop-filter:blur(14px);
+    box-shadow:var(--shadow);
+    animation:slideRight .8s;
+}
+@keyframes slideRight{
+    from{opacity:0; transform:translateX(40px);}
+    to{opacity:1; transform:translateX(0);}
+}
+.formulario h1{
+    text-align:center;
+    margin-bottom:22px;
+    font-size:clamp(22px,4vw,30px);
+}
+
+.campo{
+    position:relative;
+    margin-bottom:20px;
+}
+.campo i{
+    position:absolute;
+    left:14px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#666;
+}
+.campo input, .campo textarea{
+    width:100%;
+    padding:14px 16px 14px 48px;
+    border:none;
+    border-radius:14px;
+    font-size:1rem;
+}
+textarea{min-height:120px; resize:none;}
+input:focus, textarea:focus{
+    outline:3px solid rgba(255,204,0,.45);
+}
+
+/* Botón */
+.btnEnviar{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:16px;
+    font-size:1.1rem;
+    font-weight:bold;
+    background:linear-gradient(90deg,var(--accent),#e6b800);
+    color:var(--primary-dark);
+    cursor:pointer;
+    transition:var(--transition);
+}
+.btnEnviar:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 35px rgba(0,0,0,.45);
+}
+
+/* ========= FOOTER ========= */
+.footer{
+    margin-top:50px;
+    background:var(--glass);
+    padding:26px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+}
+.footer img{
+    width:clamp(45px,6vw,65px);
+}
+.footer small{color:#e5e7eb}
+
+@media(max-width:700px){
+    .footer{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+
+/* ========= POPUP ========= */
+#popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+}
+.popup-box{
+    background:white;
+    padding:32px;
+    border-radius:22px;
+    text-align:center;
+    max-width:380px;
+    animation:pop .35s ease;
+    color:#333;
+}
+@keyframes pop{
+    from{transform:scale(.75); opacity:0;}
+    to{transform:scale(1); opacity:1;}
+}
+
+/* ========= WHATSAPP ========= */
+.whatsapp{
+    position:fixed;
+    right:20px; bottom:20px;
+    width:60px; height:60px;
+    background:#25D366;
+    color:white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+    box-shadow:var(--shadow);
+    z-index:999;
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <img src="hormiga-silueta.gif" alt="Morwi">
+    <h1>Morwi Soluciones Inmobiliarias</h1>
+</header>
+
+<!-- NAV -->
+<nav>
+    <div class="menu-container">
+
+        <div class="hamb" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
+
+        <div class="menu-links" id="menuLinks">
+            <a href="contactos.html" class="btn-contacto">Contacto</a>
+            <a href="nosotros.html">Sobre Nosotros</a>
+            <a href="servi.html">Servicios</a>
+            <a href="publicar.html">Publicar</a>
+            <a href="ayuda.html">Ayuda</a>
+        </div>
+
+        <div class="buscar-prop">
+            <input type="text" placeholder="Localidad" id="buscarLocalidad">
+            <input type="text" placeholder="Código" id="buscarCodigo">
+            <button onclick="buscarProp()">Buscar</button>
+        </div>
+
+    </div>
+</nav>
+
+<!-- MAIN -->
+<section class="main">
+
+    <div class="destacadas">
+        <div class="titulo-area">
+            <img src="Tick_Mark_Circle_icon-icons.com_69145.ico" alt="">
+            <h2>Propiedades destacadas</h2>
+        </div>
+
+        <div class="galeria">
+            <img src="casa01.jpg" loading="lazy" onclick="location.href='detalles1.html'">
+            <img src="casa02.jpg" loading="lazy" onclick="location.href='detalles1.html'">
+            <img src="casa01.jpg" loading="lazy" onclick="location.href='detalles1.html'">
+            <img src="casa02.jpg" loading="lazy" onclick="location.href='detalles1.html'">
+        </div>
+    </div>
+
+    <aside class="formulario">
+        <form id="contactForm" action="enviar4.php" method="post">
+            <h1>Contacto</h1>
+
+            <div class="campo">
+                <i class="fa-solid fa-user"></i>
+                <input id="nombre" name="nombre" placeholder="Nombre completo" required>
+            </div>
+
+            <div class="campo">
+                <i class="fa-solid fa-phone"></i>
+                <input id="celular" name="celular" placeholder="Celular" required>
+            </div>
+
+            <div class="campo">
+                <i class="fa-solid fa-envelope"></i>
+                <input id="correo" name="correo" type="email" placeholder="Correo electrónico" required>
+            </div>
+
+            <div class="campo">
+                <i class="fa-solid fa-message"></i>
+                <textarea id="mensaje" name="mensaje" placeholder="Mensaje" required></textarea>
+            </div>
+
+            <button class="btnEnviar">Enviar mensaje</button>
+        </form>
+    </aside>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <img src="hormiga-silueta.gif" alt="">
+    <div>
+        <strong>Morwi Soluciones Inmobiliarias</strong><br>
+        <small>Du Graty · Chaco · +54 3735 531658</small>
+    </div>
+    <button class="btn-contacto" onclick="location.href='contactos.html'">Contacto</button>
+</footer>
+
+<!-- POPUP -->
+<div id="popup">
+    <div class="popup-box">
+        <h2>¡Gracias!</h2>
+        <p>Tu mensaje fue enviado correctamente.</p>
+        <button class="btn-contacto" onclick="popup.style.display='none'">Cerrar</button>
+    </div>
+</div>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/543735531658" target="_blank" class="whatsapp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- JS -->
+<script>
+
+function toggleMenu(){
+    let menu = document.getElementById("menuLinks");
+
+    if(menu.style.right === "0px"){
+        menu.style.right = "-100%";
+    } else {
+        menu.style.right = "0px";
+    }
+}
+
+const form = document.getElementById("contactForm");
+const popup = document.getElementById("popup");
+
+form.addEventListener("submit", e=>{
+    e.preventDefault();
+    popup.style.display="flex";
+    form.reset();
+});
+
+function buscarProp(){
+    let localidad = document.getElementById("buscarLocalidad").value;
+    let codigo = document.getElementById("buscarCodigo").value;
+
+    if(localidad === "" && codigo === ""){
+        alert("Ingrese una localidad o un código.");
+        return;
+    }
+
+    alert("Buscando propiedades...\nLocalidad: " + localidad + "\nCódigo: " + codigo);
+}
+
+</script>
+
+</body>
+</html>
