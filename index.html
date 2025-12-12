@@ -2,28 +2,30 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Morwi Soluciones Inmobiliaria</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<title>Morwi Soluciones Inmobiliarias</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+
 /* ========= VARIABLES ========= */
 :root{
     --primary:#133055;
     --primary-dark:#0b1f3a;
     --accent:#ffcc00;
-    --accent-soft:#ffefb0;
     --white:#fff;
     --glass:rgba(19,48,85,.78);
     --radius:18px;
     --shadow:0 20px 50px rgba(0,0,0,.35);
-    --transition:.4s ease;
-    --font:'Trebuchet MS', Arial, sans-serif;
+    --transition:.35s ease;
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
 }
 
 /* ========= RESET ========= */
 *{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
     font-family:var(--font);
     min-height:100vh;
@@ -31,138 +33,222 @@ body{
       linear-gradient(rgba(8,20,40,.65),rgba(8,20,40,.65)),
       url("freepik__talk__81069.png") center/cover fixed no-repeat;
     color:#f3f4f6;
-    animation:fade .8s ease;
+    animation:fade .7s;
 }
 @keyframes fade{
-    from{opacity:0;transform:translateY(25px)}
-    to{opacity:1;transform:translateY(0)}
+    from{opacity:0; transform:translateY(15px);}
+    to{opacity:1; transform:translateY(0);}
 }
 
 /* ========= HEADER ========= */
 .header{
     max-width:1200px;
     margin:auto;
-    padding:26px 20px 15px;
+    padding:20px;
     display:flex;
     align-items:center;
-    gap:18px;
+    gap:16px;
 }
-.header img{width:72px}
+.header img{width:64px; height:auto;}
 .header h1{
-    font-size:30px;
-    letter-spacing:.5px;
-    text-shadow:0 6px 20px #000;
+    font-size:clamp(22px,4vw,32px);
 }
 
-/* ========= NAV ========= */
-.menu5{
-    max-width:1200px;
-    margin:15px auto 35px;
-    padding:14px 22px;
-    display:flex;
-    justify-content:center;
-    gap:26px;
+/* ========= NAV + BUSCADOR ========= */
+
+nav{
+    width:100%;
     background:var(--glass);
-    border-radius:var(--radius);
     backdrop-filter:blur(12px);
+    padding:14px 22px;
     box-shadow:var(--shadow);
 }
-.menu5 a{
+
+.menu-container{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+/* Links */
+.menu-links{
+    display:flex;
+    gap:24px;
+    align-items:center;
+}
+
+.menu-links a{
     color:white;
     text-decoration:none;
     font-weight:600;
     position:relative;
 }
-.menu5 a::after{
+
+.menu-links a::after{
     content:"";
     position:absolute;
-    left:0;bottom:-6px;
-    width:0;height:2px;
+    left:0; bottom:-6px;
+    width:0; height:2px;
     background:var(--accent);
     transition:var(--transition);
 }
-.menu5 a:hover::after{width:100%}
+.menu-links a:hover::after{width:100%}
+
+/* Botón Contacto estilizado */
+.btn-contacto{
+    padding:8px 16px;
+    border-radius:12px;
+    background:var(--accent);
+    color:var(--primary-dark) !important;
+    font-weight:bold;
+    border:2px solid transparent;
+    transition:var(--transition);
+}
+.btn-contacto:hover{
+    background:transparent;
+    color:white !important;
+    border:2px solid var(--accent);
+}
+
+/* BUSCADOR */
+.buscar-prop{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    margin-left:20px;
+}
+
+.buscar-prop input{
+    padding:8px 12px;
+    border-radius:10px;
+    border:none;
+    width:130px;
+}
+
+.buscar-prop button{
+    padding:8px 14px;
+    background:var(--accent);
+    border:none;
+    border-radius:10px;
+    font-weight:bold;
+    color:var(--primary-dark);
+    cursor:pointer;
+    transition:var(--transition);
+}
+.buscar-prop button:hover{
+    transform:scale(1.05);
+}
+
+/* BOTÓN HAMBURGUESA */
+.hamb{
+    display:none;
+    font-size:30px;
+    cursor:pointer;
+}
+
+/* MENU MOBILE */
+@media(max-width:920px){
+    .buscar-prop{display:none;}
+}
+
+@media(max-width:760px){
+    .menu-links{
+        position:fixed;
+        top:0; right:-100%;
+        background:rgba(0,0,0,.95);
+        height:100vh;
+        width:70%;
+        flex-direction:column;
+        padding-top:80px;
+        transition:var(--transition);
+    }
+
+    .hamb{display:block;color:white;}
+
+    .menu-links a{font-size:20px;}
+}
 
 /* ========= MAIN ========= */
 .main{
     max-width:1200px;
     margin:auto;
-    padding:0 20px 50px;
+    padding:20px;
     display:grid;
-    grid-template-columns:1fr 420px;
+    grid-template-columns:1fr 400px;
     gap:35px;
+}
+@media(max-width:900px){
+    .main{grid-template-columns:1fr;}
 }
 
 /* ========= DESTACADAS ========= */
-.destacadas{
-    animation:slideLeft 1s ease;
-}
+.destacadas{animation:slideLeft .8s;}
 @keyframes slideLeft{
-    from{opacity:0;transform:translateX(-50px)}
-    to{opacity:1;transform:translateX(0)}
+    from{opacity:0; transform:translateX(-40px);}
+    to{opacity:1; transform:translateX(0);}
 }
+
 .titulo-area{
     display:flex;
     align-items:center;
     gap:12px;
     margin-bottom:18px;
 }
-.titulo-area img{width:48px}
-.titulo-area h2{
-    font-size:24px;
-    letter-spacing:.3px;
-}
+.titulo-area img{width:48px; height:auto;}
+.titulo-area h2{font-size:clamp(20px,3vw,26px);}
 
 .galeria{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:20px;
 }
+
 .galeria img{
     width:100%;
-    border-radius:18px;
     aspect-ratio:4/3;
     object-fit:cover;
-    box-shadow:var(--shadow);
+    border-radius:18px;
     cursor:pointer;
     transition:var(--transition);
+    box-shadow:var(--shadow);
 }
 .galeria img:hover{
-    transform:translateY(-8px) scale(1.04);
+    transform:scale(1.03);
     filter:brightness(1.1);
 }
 
 /* ========= FORM ========= */
 .formulario{
     background:var(--glass);
-    padding:34px;
+    padding:30px;
     border-radius:var(--radius);
     backdrop-filter:blur(14px);
     box-shadow:var(--shadow);
-    animation:slideRight 1s ease;
+    animation:slideRight .8s;
 }
 @keyframes slideRight{
-    from{opacity:0;transform:translateX(50px)}
-    to{opacity:1;transform:translateX(0)}
-}
-.formulario h1{
-    text-align:center;
-    margin-bottom:24px;
-    font-size:26px;
-    letter-spacing:.4px;
+    from{opacity:0; transform:translateX(40px);}
+    to{opacity:1; transform:translateX(0);}
 }
 
-.campo{
-    position:relative;
-    margin-bottom:20px;
+.formulario h1{
+    text-align:center;
+    margin-bottom:22px;
+    font-size:clamp(22px,3vw,28px);
 }
+
+.campo{position:relative; margin-bottom:20px;}
+
 .campo i{
     position:absolute;
-    top:50%;left:15px;
+    left:14px;
+    top:50%;
     transform:translateY(-50%);
-    color:#555;
-    font-size:17px;
+    color:#666;
 }
+
 .campo input,
 .campo textarea{
     width:100%;
@@ -171,16 +257,17 @@ body{
     border-radius:14px;
     font-size:1rem;
 }
-.campo textarea{min-height:120px;resize:none}
-.campo input:focus,
-.campo textarea:focus{
+
+textarea{min-height:120px; resize:none;}
+
+input:focus, textarea:focus{
     outline:3px solid rgba(255,204,0,.45);
 }
 
 /* ========= BOTÓN ========= */
 .btnEnviar{
     width:100%;
-    padding:15px;
+    padding:16px;
     border:none;
     border-radius:16px;
     font-size:1.1rem;
@@ -192,7 +279,7 @@ body{
 }
 .btnEnviar:hover{
     transform:translateY(-4px);
-    box-shadow:0 18px 40px rgba(0,0,0,.45);
+    box-shadow:0 15px 35px rgba(0,0,0,.45);
 }
 
 /* ========= FOOTER ========= */
@@ -206,22 +293,14 @@ body{
     gap:20px;
     backdrop-filter:blur(10px);
 }
-.footer img{width:58px}
+.footer img{width:58px;}
 .footer small{color:#e5e7eb}
 
-.btn-outline{
-    padding:12px 26px;
-    border-radius:14px;
-    border:2px solid white;
-    background:transparent;
-    color:white;
-    font-weight:600;
-    cursor:pointer;
-    transition:var(--transition);
-}
-.btn-outline:hover{
-    background:white;
-    color:var(--primary);
+@media(max-width:700px){
+    .footer{
+        flex-direction:column;
+        text-align:center;
+    }
 }
 
 /* ========= POPUP ========= */
@@ -243,16 +322,15 @@ body{
     animation:pop .35s ease;
 }
 @keyframes pop{
-    from{transform:scale(.75);opacity:0}
-    to{transform:scale(1);opacity:1}
+    from{transform:scale(.75); opacity:0;}
+    to{transform:scale(1); opacity:1;}
 }
 
 /* ========= WHATSAPP ========= */
 .whatsapp{
     position:fixed;
-    right:25px;
-    bottom:25px;
-    width:62px;height:62px;
+    right:20px; bottom:20px;
+    width:60px; height:60px;
     background:#25D366;
     color:white;
     border-radius:50%;
@@ -261,49 +339,63 @@ body{
     justify-content:center;
     font-size:32px;
     box-shadow:var(--shadow);
+    z-index:999;
 }
 
-/* ========= RESPONSIVE ========= */
-@media(max-width:900px){
-    .main{grid-template-columns:1fr}
-}
 </style>
 </head>
-
 <body>
 
+<!-- HEADER -->
 <header class="header">
     <img src="hormiga-silueta.gif" alt="Morwi">
-    <h1>Morwi Soluciones Inmobiliaria</h1>
+    <h1>Morwi Soluciones Inmobiliarias</h1>
 </header>
 
-<nav class="menu5">
-    <a href="contactos.html">Ir a Contacto</a>
-    <a href="nosotros.html">Sobre Nosotros</a>
-    <a href="servi.html">Ver Servicios</a>
-    <a href="publicar.html">Publicar</a>
-    <a href="ayuda.html">Ayuda</a>
+<!-- NAV -->
+<nav>
+    <div class="menu-container">
+
+        <div class="hamb" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
+
+        <div class="menu-links" id="menuLinks">
+            <a href="contactos.html" class="btn-contacto">Contacto</a>
+            <a href="nosotros.html">Sobre Nosotros</a>
+            <a href="servi.html">Servicios</a>
+            <a href="publicar.html">Publicar</a>
+            <a href="ayuda.html">Ayuda</a>
+        </div>
+
+        <!-- BUSCADOR -->
+        <div class="buscar-prop">
+            <input type="text" placeholder="Localidad" id="buscarLocalidad">
+            <input type="text" placeholder="Código" id="buscarCodigo">
+            <button onclick="buscarProp()">Buscar</button>
+        </div>
+
+    </div>
 </nav>
 
+<!-- MAIN -->
 <section class="main">
 
     <div class="destacadas">
         <div class="titulo-area">
-            <img src="Tick_Mark_Circle_icon-icons.com_69145.ico">
+            <img src="Tick_Mark_Circle_icon-icons.com_69145.ico" alt="">
             <h2>Propiedades destacadas</h2>
         </div>
 
         <div class="galeria">
-            <img src="casa01.jpg" onclick="location.href='detalles1.html'">
-            <img src="casa02.jpg" onclick="location.href='detalles1.html'">
-               <img src="casa01.jpg" onclick="location.href='detalles1.html'">
-            <img src="casa02.jpg" onclick="location.href='detalles1.html'">
+            <img src="casa01.jpg" loading="lazy" onclick="location.href='detalles1.html'">
+            <img src="casa02.jpg" loading="lazy" onclick="location.href='detalles1.html'">
+            <img src="casa01.jpg" loading="lazy" onclick="location.href='detalles1.html'">
+            <img src="casa02.jpg" loading="lazy" onclick="location.href='detalles1.html'">
         </div>
     </div>
 
     <aside class="formulario">
-        <form id="contactForm" action="enviar4.php" method="post" enctype="multipart/form-data">
-            <h1>Contactanos</h1>
+        <form id="contactForm" action="enviar4.php" method="post">
+            <h1>Contacto</h1>
 
             <div class="campo">
                 <i class="fa-solid fa-user"></i>
@@ -317,12 +409,12 @@ body{
 
             <div class="campo">
                 <i class="fa-solid fa-envelope"></i>
-                <input id="correo" name="corre" type="email" placeholder="Correo electrónico" required>
+                <input id="correo" name="correo" type="email" placeholder="Correo electrónico" required>
             </div>
 
             <div class="campo">
                 <i class="fa-solid fa-message"></i>
-                <textarea id="mensaje"  name="mensaje" placeholder="Mensaje" required></textarea>
+                <textarea id="mensaje" name="mensaje" placeholder="Mensaje" required></textarea>
             </div>
 
             <button class="btnEnviar">Enviar mensaje</button>
@@ -331,28 +423,38 @@ body{
 
 </section>
 
+<!-- FOOTER -->
 <footer class="footer">
-    <img src="hormiga-silueta.gif">
+    <img src="hormiga-silueta.gif" alt="">
     <div>
-        <strong>Morwi Soluciones Inmobiliaria</strong><br>
+        <strong>Morwi Soluciones Inmobiliarias</strong><br>
         <small>Du Graty · Chaco · +54 3735 531658</small>
     </div>
-    <button class="btn-outline" onclick="location.href='contactos.html'">Contacto</button>
+    <button class="btn-contacto" onclick="location.href='contactos.html'">Contacto</button>
 </footer>
 
+<!-- POPUP -->
 <div id="popup">
     <div class="popup-box">
         <h2>¡Gracias!</h2>
         <p>Tu mensaje fue enviado correctamente.</p>
-        <button class="btn-outline" onclick="popup.style.display='none'">Cerrar</button>
+        <button class="btn-contacto" onclick="popup.style.display='none'">Cerrar</button>
     </div>
 </div>
 
+<!-- WHATSAPP -->
 <a href="https://wa.me/543735531658" target="_blank" class="whatsapp">
     <i class="fa-brands fa-whatsapp"></i>
 </a>
 
+<!-- SCRIPTS -->
 <script>
+
+function toggleMenu(){
+    let menu = document.getElementById("menuLinks");
+    menu.style.right = menu.style.right === "0px" ? "-100%" : "0px";
+}
+
 const form=document.getElementById("contactForm");
 const popup=document.getElementById("popup");
 
@@ -361,8 +463,20 @@ form.addEventListener("submit",e=>{
     popup.style.display="flex";
     form.reset();
 });
+
+function buscarProp(){
+    let localidad = document.getElementById("buscarLocalidad").value;
+    let codigo = document.getElementById("buscarCodigo").value;
+
+    if(localidad === "" && codigo === ""){
+        alert("Ingrese una localidad o un código.");
+        return;
+    }
+
+    alert("Buscando propiedades...\nLocalidad: " + localidad + "\nCódigo: " + codigo);
+}
+
 </script>
 
 </body>
 </html>
-
