@@ -306,19 +306,37 @@ body {
     </div>
 </main>
 
-<script>
-const input = document.getElementById('busca');
-const items = document.querySelectorAll('.producto');
 
-input.addEventListener('input', () => {
-    const filtro = input.value.toLowerCase();
-    items.forEach(el => {
-        const nombre = el.dataset.nombre;
-        const codigo = el.dataset.categoria;
-        el.style.display = (nombre.includes(filtro) || codigo.includes(filtro)) ? 'flex' : 'none';
+<script>
+const parametros = new URLSearchParams(window.location.search);
+const filtroLocalidad = parametros.get("localidad")?.toLowerCase() || "";
+const filtroCodigo = parametros.get("codigo")?.toLowerCase() || "";
+const items = document.querySelectorAll(".producto");
+
+if (filtroLocalidad !== "" || filtroCodigo !== "") {
+    items.forEach(item => {
+        let nombre = item.dataset.nombre.toLowerCase();
+        let codigo = item.dataset.categoria.toLowerCase();
+        if ((filtroLocalidad && !nombre.includes(filtroLocalidad)) ||
+            (filtroCodigo && !codigo.includes(filtroCodigo))) {
+            item.style.display = "none";
+        }
     });
-});
+}
+
+const input = document.getElementById("busca");
+if (input) {
+    input.addEventListener("input", () => {
+        const filtro = input.value.toLowerCase();
+        items.forEach(el => {
+            const nombre = el.dataset.nombre;
+            const codigo = el.dataset.categoria;
+            el.style.display = (nombre.includes(filtro) || codigo.includes(filtro)) ? "flex" : "none";
+        });
+    });
+}
 </script>
+
 
 <footer class="site-footer">
     <div class="footer-content">
